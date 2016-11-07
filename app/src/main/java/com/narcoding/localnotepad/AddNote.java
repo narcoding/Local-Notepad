@@ -29,7 +29,6 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
     Location latLng;
 
-
     private static final String TAG = "notepad";
 
 
