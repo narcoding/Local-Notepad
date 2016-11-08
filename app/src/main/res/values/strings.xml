@@ -2,6 +2,7 @@
     <string name="app_name">Local Notepad</string>
     <string name="title_activity_add_note">Add Note</string>
     <string name="title_activity_one_note">One Note</string>
+    <string name="title_activity_notes_map">Notes Map</string>
 
     <string name="oneNote">NoteView</string>
     <string name="addNoteButton">New note</string>

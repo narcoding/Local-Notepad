@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // populating ArrayList items with notes titles
         if (notes.moveToFirst()) {
             do {
-                items.add(new Item(notes.getShort(0), notes.getString(1)));
+                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2)));
             } while (notes.moveToNext());
         }
 
@@ -221,8 +221,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 //        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 //startActivityForResult(intent, 1234);
-                Intent intent=new Intent(this,AddNote.class);
-                startActivity(intent);
+                Intent intent_addNote=new Intent(this,AddNote.class);
+                startActivity(intent_addNote);
+
+                return true;
+
+            case R.id.action_map:
+
+                int last_itemId= items.get(noteList.getLastVisiblePosition()).getId();
+
+                String last_itemTitle = items.get(noteList.getLastVisiblePosition()).getTitle().toString();
+
+                Intent intent_map=new Intent(this,NotesMap.class);
+                //intent_map.putExtra("last_itemId",last_itemId);
+                //intent_map.putExtra("last_itemTitle",last_itemTitle);
+                startActivity(intent_map);
 
                 return true;
 
