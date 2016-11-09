@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -32,6 +33,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
     private ArrayList<Marker> markers;
     private ArrayList<Double> latitude;
     private ArrayList<Double> longitude;
+    private Map<Marker,String> mark;
 
 
     // variable will contain the position of clicked item in listview
@@ -149,17 +151,17 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         getLocationsSize();
 
         for (int a = 0; a < locations.size(); a++) {
-            {
-
-
-
-                    markers.add(mMap_Notes.addMarker(new MarkerOptions().position(new LatLng(latitude.get(a), longitude.get(a)))));
-                for (Item i : items) {
-                    markers.get(a).setTitle(i.getTitle());
-
-                }
+                markers.add(mMap_Notes.addMarker(new MarkerOptions().position(new LatLng(latitude.get(a), longitude.get(a)))));
 
             }
+
+            int b=0;
+        for (Item i : items) {
+
+                markers.get(b).setTitle(i.getTitle());
+                b=b+1;
+
+        }
 
 
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -178,4 +180,3 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
 
     }
 
-}
