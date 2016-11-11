@@ -1,4 +1,4 @@
-package com.narcoding.localnotepad;
+package com.narcoding.localnotepad.Activity;
 
 import android.app.SearchManager;
 import android.content.ComponentName;
@@ -21,6 +21,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.narcoding.localnotepad.DBHelper;
+import com.narcoding.localnotepad.Item;
+import com.narcoding.localnotepad.R;
 
 import java.util.ArrayList;
 
@@ -48,15 +52,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
 
+    private void init(){
+        noteList = (ListView) findViewById(R.id.noteList);
+        // initialization of database helper
+        dbhelper = new DBHelper(getApplicationContext());
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        noteList = (ListView) findViewById(R.id.noteList);
 
-        // initialization of database helper
-        dbhelper = new DBHelper(getApplicationContext());
+        init();
 
         // setting note's titles to item in listview
         setNotes();
@@ -66,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
     }
-
 
     public void setNotes() {
         // init the items arrayList
@@ -95,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             } while (notes.moveToNext());
         }
 
-
         for (Item i : items) {
             titles.add(i.getTitle());
         }
@@ -108,9 +115,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         noteList.setOnItemClickListener(this);
 
         stopManagingCursor(notes);
-
     }
-
 
     // always when we start this activity we want to refresh the list of notes
     @Override
@@ -120,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setNotes();
 
     }
-
 
     // this method is called when user long clicked on listview
     @Override
@@ -138,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         inflater.inflate(R.menu.context_menu, menu);
 
     }
-
 
     // method is called when user clicks on contextmenu item
     @Override
@@ -175,15 +178,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 // refreshing the listView
                 setNotes();
                 break;
-
         }
 
         return false;
 
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -228,22 +227,27 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
             case R.id.action_map:
 
-                int last_itemId= items.get(noteList.getLastVisiblePosition()).getId();
+                if(adapter.getCount()==0){
+                    Toast.makeText(this,"You don't have any note! Please add note!",Toast.LENGTH_LONG).show();
+                }
+                else {
 
-                String last_itemTitle = items.get(noteList.getLastVisiblePosition()).getTitle().toString();
+                    int last_itemId = items.get(noteList.getLastVisiblePosition()).getId();
 
-                Intent intent_map=new Intent(this,NotesMap.class);
-                //intent_map.putExtra("last_itemId",last_itemId);
-                //intent_map.putExtra("last_itemTitle",last_itemTitle);
-                startActivity(intent_map);
+                    String last_itemTitle = items.get(noteList.getLastVisiblePosition()).getTitle().toString();
+
+                    Intent intent_map = new Intent(this, NotesMap.class);
+                    //intent_map.putExtra("last_itemId",last_itemId);
+                    //intent_map.putExtra("last_itemTitle",last_itemTitle);
+                    startActivity(intent_map);
 
                 return true;
+                }
 
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -267,7 +271,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             Toast.makeText(this, "Suggestion: "+ uri, Toast.LENGTH_SHORT).show();
         }
     }
-
 
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {

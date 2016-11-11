@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.location.Location;
 
 import java.util.Date;
 
@@ -13,6 +12,8 @@ import java.util.Date;
  * Created by Naim on 3.11.2016.
  */
 public class DBHelper extends SQLiteOpenHelper {
+
+    //String latLng;
 
     private Context ctx;
     //version of database
@@ -54,10 +55,10 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //function for adding the note to database
-    public void addNote(String title, String content, Location location) {
+    public void addNote(String title, String content, String location) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String latLng= location.getLatitude()+"/"+location.getLongitude();
+        //latLng = location.getLatitude() + "/" + location.getLongitude();
 
         //creating the contentValues object
         //read more here -> http://developer.android.com/reference/android/content/ContentValues.html
@@ -65,7 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put("noteTitle", title);
         cv.put("noteContent", content);
         cv.put("date", new Date().toString());
-        cv.put("location", String.valueOf(latLng));
+        cv.put("location", location);
 
         //inserting the note to database
         db.insert(TABLE_NAME, null, cv);
@@ -112,14 +113,14 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateNote(String title, String content, String editTitle, Location location) {
+    public void updateNote(String title, String content, String editTitle, String location) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
         cv.put("noteTitle", title);
         cv.put("noteContent", content);
         cv.put("date", new Date().toString());
-        cv.put("location", String.valueOf(location));
+        cv.put("location", location);
 
         db.update(TABLE_NAME, cv, KEY_TITLE + " LIKE '" +  editTitle +  "'", null);
 

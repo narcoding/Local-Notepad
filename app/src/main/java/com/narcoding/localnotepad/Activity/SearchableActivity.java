@@ -1,9 +1,11 @@
-package com.narcoding.localnotepad;
+package com.narcoding.localnotepad.Activity;
 
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.narcoding.localnotepad.R;
 
 /**
  * Created by Naim on 31.10.2016.

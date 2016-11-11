@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop">
             <intent-filter>
@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchableActivity">
+        <activity android:name=".Activity.SearchableActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -38,12 +38,12 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".AddNote"
+            android:name=".Activity.AddNote"
             android:label="@string/title_activity_add_note" />
         <activity
-            android:name=".OneNote"
+            android:name=".Activity.OneNote"
             android:label="@string/title_activity_one_note"></activity>
-        <activity android:name=".NotesMap"
+        <activity android:name=".Activity.NotesMap"
             android:label="@string/title_activity_one_note"></activity>
     </application>
 

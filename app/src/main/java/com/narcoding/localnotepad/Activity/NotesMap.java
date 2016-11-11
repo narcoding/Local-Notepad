@@ -1,4 +1,4 @@
-package com.narcoding.localnotepad;
+package com.narcoding.localnotepad.Activity;
 
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -16,8 +16,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.narcoding.localnotepad.DBHelper;
+import com.narcoding.localnotepad.Item;
+import com.narcoding.localnotepad.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
@@ -38,6 +42,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
 
     // variable will contain the position of clicked item in listview
     private int position = 0;
+    int c=0;
 
 
 
@@ -55,6 +60,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.Map_Notes);
         mapFragment.getMapAsync(this);
 
+        setNotes();
 
     }
 
@@ -74,6 +80,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         // getting notes from db
         // see dbhelper for more details
         notes = dbHelper.getNotes2(db);
+
 
         // this should fix the problem
         // now the activity will be managing the cursor lifecycle
@@ -96,36 +103,24 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
             titles.add(i.getTitle());
         }
 
+        locations.removeAll(Collections.singleton(null));
         for (Item i : items) {
             locations.add(i.getLocation());
-
         }
 
 
-
-
-            getLocationsSize();
-
-        for (int a = 0; a < locations.size(); a++) {
+        for (int a = 0; a < locations.size(); a++)
             {
-                String[] latlong = locations.get(a).split("/");
+                    String[] latlong = locations.get(a).split("/");
 
-                latitude.add(Double.parseDouble(latlong[0]));
-                longitude.add(Double.parseDouble(latlong[1]));
+                    latitude.add(Double.parseDouble(latlong[0]));
+                    longitude.add(Double.parseDouble(latlong[1]));
 
             }
 
             stopManagingCursor(notes);
 
         }
-    }
-
-    private int getLocationsSize(){
-    if(locations == null || locations.size()>0)
-            return locations.size();
-    else
-            return 0;
-    }
 
 
     @Override
@@ -145,36 +140,32 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         }
         mMap_Notes.setMyLocationEnabled(true);
 
+
         setNotes();
 
-
-        getLocationsSize();
-
         for (int a = 0; a < locations.size(); a++) {
+
                 markers.add(mMap_Notes.addMarker(new MarkerOptions().position(new LatLng(latitude.get(a), longitude.get(a)))));
 
-            }
+        }
 
             int b=0;
         for (Item i : items) {
 
+            if(b<markers.size()) {
                 markers.get(b).setTitle(i.getTitle());
-                b=b+1;
-
+                b = b + 1;
+            }
         }
-
 
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (Marker marker : markers) {
             builder.include(marker.getPosition());
         }
         LatLngBounds bounds = builder.build();
-        int padding = 0; // offset from edges of the map in pixels
+        int padding = 80; // offset from edges of the map in pixels
         CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
         mMap_Notes.animateCamera(cu);
-
-
-
 
     }
 
