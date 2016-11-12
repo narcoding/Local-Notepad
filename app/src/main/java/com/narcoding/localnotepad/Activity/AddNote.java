@@ -101,7 +101,7 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
         }
         else {
-            Toast.makeText(this,"GPS is enabled!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"GPS is active now!",Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -213,6 +213,14 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
             }
         });
 
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iCancel=new Intent(AddNote.this,MainActivity.class);
+                startActivity(iCancel);
+            }
+        });
+
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,19 +239,30 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
                 //adding note to db
                 if (!isEdit) {
-                    //if it isn't edit mode we just add a new note to db
-                    dbhelper = new DBHelper(getApplicationContext());
-                    dbhelper.addNote(title, content, strLocation);
-                    //and finish the activity here
-                    //so we came back to MainActivity
-                    finish();
+
+                    if(strLocation==null){
+                        Toast.makeText(AddNote.this,"Location not find!",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        //if it isn't edit mode we just add a new note to db
+                        dbhelper = new DBHelper(getApplicationContext());
+                        dbhelper.addNote(title, content, strLocation);
+                        //and finish the activity here
+                        //so we came back to MainActivity
+                        finish();
+                    }
                 } else {
 
-                    //if this is edit mode, we just update the old note
-                    dbhelper.updateNote(title, content, editTitle, strNewLocation);
-                    //and the same finish activity
-                    finish();
+                    if(strNewLocation==null){
+                        Toast.makeText(AddNote.this,"Location not find!",Toast.LENGTH_LONG).show();
+                    }
+                    else {
 
+                        //if this is edit mode, we just update the old note
+                        dbhelper.updateNote(title, content, editTitle, strNewLocation);
+                        //and the same finish activity
+                        finish();
+                    }
                 }
             }
         });
@@ -286,6 +305,7 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
                 public void onMyLocationChange(Location arg0) {
 
 
+                    mMap.clear();
                     float zoomLevel = (float) 16.0; //This goes up to 21
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(arg0.getLatitude(), arg0.getLongitude()), zoomLevel));
                     mMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())));

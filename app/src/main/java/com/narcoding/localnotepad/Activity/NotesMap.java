@@ -1,11 +1,19 @@
 package com.narcoding.localnotepad.Activity;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -44,10 +52,11 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
     private int position = 0;
     int c=0;
 
+    boolean isGPSEnabled;
+    CameraUpdate cu;
+    LatLngBounds bounds;
 
 
-    //double latitude;
-    //double longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +72,43 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         setNotes();
 
     }
+
+    private void gpsOpen(){
+
+        LocationManager lm = (LocationManager)
+                this.getSystemService(Context.LOCATION_SERVICE);
+        isGPSEnabled= lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if (!isGPSEnabled) {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(NotesMap.this);
+            final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
+            final String message = "Your GPS seems to be disabled, do you want to enable it?";
+
+            builder.setMessage(message)
+                    .setPositiveButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+                                    NotesMap.this.startActivity(new Intent(action));
+                                    d.dismiss();
+                                }
+                            })
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+                                    d.cancel();
+                                    Toast.makeText(NotesMap.this,"GPS don't open!",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+            builder.create().show();
+
+        }
+        else {
+            Toast.makeText(this, "GPS is active now!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
 
 
@@ -162,10 +208,28 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         for (Marker marker : markers) {
             builder.include(marker.getPosition());
         }
-        LatLngBounds bounds = builder.build();
+        bounds = builder.build();
         int padding = 80; // offset from edges of the map in pixels
-        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+        cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
         mMap_Notes.animateCamera(cu);
+
+        gpsOpen();
+
+        mMap_Notes.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+            @Override
+            public void onMyLocationChange(Location location) {
+                float zoomLevel = (float) 16.0; //This goes up to 21
+                mMap_Notes.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), zoomLevel));
+
+            }
+        });
+
+        mMap_Notes.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                mMap_Notes.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 30));
+            }
+        });
 
     }
 

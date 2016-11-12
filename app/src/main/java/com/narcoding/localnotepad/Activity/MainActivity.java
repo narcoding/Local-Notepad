@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     // our views from layout
     private ListView noteList;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     // adapter use to populate the listview
     private ArrayAdapter<String> adapter;
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     private void init(){
         noteList = (ListView) findViewById(R.id.noteList);
+        swipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
         // initialization of database helper
         dbhelper = new DBHelper(getApplicationContext());
 
@@ -73,8 +76,40 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // setting that longclick on listview will open the context menu
         this.registerForContextMenu(noteList);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+
+                refreshContent();
+
+            }
+        });
+
 
     }
+
+
+
+
+    private void refreshContent(){
+
+
+        Runnable run= new Runnable() {
+            @Override
+            public void run() {
+                noteList.setAdapter(adapter);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        };
+
+        android.os.Handler handler=new android.os.Handler();
+        handler.postDelayed(run,750);
+
+    }
+
+
+
 
     public void setNotes() {
         // init the items arrayList
@@ -110,8 +145,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // creating new adapter
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, titles);
+
         noteList.setAdapter(adapter);
         // setting listener to the listView
+
         noteList.setOnItemClickListener(this);
 
         stopManagingCursor(notes);
@@ -122,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onResume() {
         super.onResume();
 
+        adapter.notifyDataSetChanged();
         setNotes();
 
     }
