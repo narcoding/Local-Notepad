@@ -253,8 +253,11 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
                     }
                 } else {
 
+                    //edit note mode
+
                     if(strNewLocation==null){
                         Toast.makeText(AddNote.this,"Location not find!",Toast.LENGTH_LONG).show();
+                        gpsOpen();
                     }
                     else {
 

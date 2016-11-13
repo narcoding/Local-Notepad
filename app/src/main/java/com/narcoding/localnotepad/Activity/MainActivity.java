@@ -1,8 +1,5 @@
 package com.narcoding.localnotepad.Activity;
 
-import android.app.SearchManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -29,7 +26,7 @@ import com.narcoding.localnotepad.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     // Tag for debugging
     private static final String TAG = "notepad";
@@ -40,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     // adapter use to populate the listview
     private ArrayAdapter<String> adapter;
+    //private ArrayAdapter<String> adapter2;
     // cursor will contain notes from database
     private Cursor notes;
     // database helper
@@ -51,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     // variable will contain the position of clicked item in listview
     private int position = 0;
+
+    //private ArrayList<String> contents;
 
 
 
@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // init the items arrayList
         titles = new ArrayList<String>();
         items = new ArrayList<Item>();
+        //contents=new ArrayList<String>();
 
         // getting readable database
         SQLiteDatabase db = dbhelper.getReadableDatabase();
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // populating ArrayList items with notes titles
         if (notes.moveToFirst()) {
             do {
-                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2)));
+                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3)));
             } while (notes.moveToNext());
         }
 
@@ -142,9 +143,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             titles.add(i.getTitle());
         }
 
+        //for(Item i:items){
+        //    contents.add(i.getContent());
+        //}
+
         // creating new adapter
-        adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, titles);
+        adapter = new ArrayAdapter<String>(this, R.layout.simple_list_item, titles);
+
+        //adapter2=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2, contents);
 
         noteList.setAdapter(adapter);
         // setting listener to the listView
@@ -229,18 +235,23 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         MenuItem searchItem = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(this);
 
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(
-                new ComponentName(this, MainActivity.class)));
-        searchView.setIconifiedByDefault(false);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
 
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(
-                new ComponentName(this, SearchableActivity.class)));
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
-        return true;
+        return super.onCreateOptionsMenu(menu);
+
     }
 
 
@@ -287,28 +298,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            Toast.makeText(this, "Searching by: "+ query, Toast.LENGTH_SHORT).show();
-
-        } else if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-            String uri = intent.getDataString();
-            Toast.makeText(this, "Suggestion: "+ uri, Toast.LENGTH_SHORT).show();
-        }
-    }
 
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
@@ -321,4 +310,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         startActivity(mIntent);
 
     }
+
+
+
 }

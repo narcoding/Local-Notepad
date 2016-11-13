@@ -30,7 +30,6 @@ import com.narcoding.localnotepad.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map;
 
 public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -45,7 +44,6 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
     private ArrayList<Marker> markers;
     private ArrayList<Double> latitude;
     private ArrayList<Double> longitude;
-    private Map<Marker,String> mark;
 
 
     // variable will contain the position of clicked item in listview
@@ -140,7 +138,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         // populating ArrayList items with notes titles
         if (notes.moveToFirst()) {
             do {
-                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2)));
+                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3)));
             } while (notes.moveToNext());
         }
 
@@ -193,19 +191,29 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
 
                 markers.add(mMap_Notes.addMarker(new MarkerOptions().position(new LatLng(latitude.get(a), longitude.get(a)))));
 
+
         }
 
             int b=0;
         for (Item i : items) {
 
             if(b<markers.size()) {
+                
                 markers.get(b).setTitle(i.getTitle());
                 b = b + 1;
+
             }
         }
 
+
+
+
+
+
+
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (Marker marker : markers) {
+
             builder.include(marker.getPosition());
         }
         bounds = builder.build();
@@ -218,6 +226,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         mMap_Notes.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location location) {
+
                 float zoomLevel = (float) 16.0; //This goes up to 21
                 mMap_Notes.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), zoomLevel));
 
