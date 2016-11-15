@@ -3,6 +3,7 @@
     <string name="title_activity_add_note">Add Note</string>
     <string name="title_activity_one_note">One Note</string>
     <string name="title_activity_notes_map">Notes Map</string>
+    <string name="title_activity_update_note">Update Note</string>
 
     <string name="oneNote">NoteView</string>
     <string name="addNoteButton">New note</string>
@@ -10,11 +11,15 @@
     <string name="CtxMenuHeader">Choose action</string>
     <string name="updateNoteButton">Update note</string>
     <string name="validation">Please fill the title and/or content field</string>
+    <string name="btnConfirn">Confirm</string>
+    <string name="btnCancel">Cancel</string>
 
     <!-- createview layout -->
     <string name="noteTitle">Note\'s title</string>
     <string name="noteContent">Note\'s content</string>
     <string name="saveNoteButton">Save note</string>
+    <string name="tgButtonOFF">Update Location</string>
+    <string name="tgButtonON">Repeal</string>
 
 
     <!-- context menu options -->
@@ -23,5 +28,16 @@
     <string name="removeNote">Remove note</string>
 
     <string name="titleHint">Enter title here</string>
+
+    <string name="enteranceAlert">Create First Note!</string>
+    <string name="enteranceAlertTitle">Create First Note!</string>
+    <string name="okey">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="gpsActiveNow">GPS is active now!</string>
+    <string name="gpsDidntOpen">GPS didn\'t open!</string>
+    <string name="gpsSeemsDisable">Your GPS seems to be disabled, do you want to enable it?</string>
+    <string name="locationNotFind">Location not find!</string>
+
+    <string name="updateNoteLocation">Update Location!</string>
 
 </resources>

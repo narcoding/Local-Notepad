@@ -88,28 +88,28 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback,Go
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(NotesMap.this);
             final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
-            final String message = "Your GPS seems to be disabled, do you want to enable it?";
+            final String message = getResources().getString(R.string.gpsSeemsDisable);
 
             builder.setMessage(message)
-                    .setPositiveButton("OK",
+                    .setPositiveButton(getResources().getString(R.string.okey),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface d, int id) {
                                     NotesMap.this.startActivity(new Intent(action));
                                     d.dismiss();
                                 }
                             })
-                    .setNegativeButton("Cancel",
+                    .setNegativeButton(getResources().getString(R.string.cancel),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface d, int id) {
                                     d.cancel();
-                                    Toast.makeText(NotesMap.this,"GPS don't open!",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(NotesMap.this,getResources().getString(R.string.gpsDidntOpen),Toast.LENGTH_SHORT).show();
                                 }
                             });
             builder.create().show();
 
         }
         else {
-            Toast.makeText(this, "GPS is active now!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.gpsActiveNow), Toast.LENGTH_SHORT).show();
         }
 
     }

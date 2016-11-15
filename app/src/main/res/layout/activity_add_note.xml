@@ -19,17 +19,16 @@
     android:layout_height="163dp"
         tools:context="com.narcoding.localnotepad.AddNote" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Note's Location"
-        android:id="@+id/btnUpdateLocation"
+        android:text="@string/updateNoteLocation"
+        android:id="@+id/tgBtnUpdateLocation"
         android:layout_gravity="right"
         android:layout_alignBottom="@+id/map"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </RelativeLayout>
 
@@ -110,14 +109,14 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm"
+            android:text="@string/btnConfirn"
             android:id="@+id/btn_confirm"
             android:layout_weight="1.00" />
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
+            android:text="@string/btnCancel"
             android:id="@+id/btn_cancel"
             android:layout_weight="1.00" />
     </LinearLayout>

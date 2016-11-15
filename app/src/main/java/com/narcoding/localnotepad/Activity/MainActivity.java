@@ -1,5 +1,6 @@
 package com.narcoding.localnotepad.Activity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,6 +23,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.narcoding.localnotepad.DBHelper;
 import com.narcoding.localnotepad.Item;
 import com.narcoding.localnotepad.R;
@@ -72,25 +75,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         init();
 
-
+        checkGooglePlayServicesAvailable();
         // setting note's titles to item in listview
         setNotes();
 
         if(adapter.getCount()==0){
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            final String message = "Create new Local Note!";
+            final String message = getResources().getString(R.string.enteranceAlert);
 
-            builder.setTitle("WELCOME!");
+            builder.setTitle(getResources().getString(R.string.enteranceAlertTitle));
             builder.setMessage(message)
-                    .setPositiveButton("Create",
+                    .setPositiveButton(getResources().getString(R.string.okey),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface d, int id) {
                                     MainActivity.this.startActivity(new Intent(MainActivity.this,AddNote.class));
                                     d.dismiss();
                                 }
                             })
-                    .setNegativeButton("Cancel",
+                    .setNegativeButton(getResources().getString(R.string.cancel),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface d, int id) {
                                     d.cancel();
@@ -131,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         };
 
         android.os.Handler handler=new android.os.Handler();
-        handler.postDelayed(run,750);
+        handler.postDelayed(run, 750);
 
     }
 
@@ -322,6 +325,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void checkGooglePlayServicesAvailable() {
+        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (status != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(status)) {
+                Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, 0);
+                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        MainActivity.this.finish();
+                    }
+                });
+                dialog.show();
+            } else {
+                Toast.makeText(this, "This device is not supported.", Toast.LENGTH_LONG).show();
+                finish();
+            }
         }
     }
 

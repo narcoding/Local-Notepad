@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -17,8 +18,10 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,7 +35,8 @@ import com.narcoding.localnotepad.R;
 public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Button btn_confirm, btn_cancel, btn_UpdateLocation;
+    private Button btn_confirm, btn_cancel;
+    private ToggleButton tgBtn_UpdateLocation;
     private EditText titleEditText;
     private EditText contentEditText;
     private Location newLocation;
@@ -57,39 +61,48 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
     double lng;
 
     boolean isGPSEnabled;
-    boolean updateLocationYes = false;
 
 
     private void init() {
         btn_confirm = (Button) findViewById(R.id.btn_confirm);
         btn_cancel = (Button) findViewById(R.id.btn_cancel);
-        btn_UpdateLocation = (Button) findViewById(R.id.btnUpdateLocation);
+        tgBtn_UpdateLocation = (ToggleButton) findViewById(R.id.tgBtnUpdateLocation);
+        tgBtn_UpdateLocation.setAlpha(0.8f);
+        tgBtn_UpdateLocation.setBackgroundColor(Color.WHITE);
         titleEditText = (EditText) findViewById(R.id.TitleEditText);
         contentEditText = (EditText) findViewById(R.id.ContentEditText);
 
+        tgBtn_UpdateLocation.setText(getResources().getString(R.string.tgButtonOFF));
+// Sets the text for when the button is first created.
+
+        tgBtn_UpdateLocation.setTextOff(getResources().getString(R.string.tgButtonOFF));
+// Sets the text for when the button is not in the checked state.
+
+        tgBtn_UpdateLocation.setTextOn(getResources().getString(R.string.tgButtonON));
+
     }
 
-    private void gpsOpen(){
+    private void gpsOpen() {
 
         LocationManager lm = (LocationManager)
                 this.getSystemService(Context.LOCATION_SERVICE);
-        isGPSEnabled= lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        isGPSEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
         if (!isGPSEnabled) {
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(AddNote.this);
             final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
-            final String message = "Your GPS seems to be disabled, do you want to enable it?";
+            final String message = getResources().getString(R.string.gpsSeemsDisable);
 
             builder.setMessage(message)
-                    .setPositiveButton("OK",
+                    .setPositiveButton(getResources().getString(R.string.okey),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface d, int id) {
                                     AddNote.this.startActivity(new Intent(action));
                                     d.dismiss();
                                 }
                             })
-                    .setNegativeButton("Cancel",
+                    .setNegativeButton(getResources().getString(R.string.cancel),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface d, int id) {
                                     d.cancel();
@@ -99,9 +112,42 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
                             });
             builder.create().show();
 
+        } else {
+            Toast.makeText(this, getResources().getString(R.string.gpsActiveNow), Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(this,"GPS is active now!",Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void gpsOpenUpdate() {
+
+        LocationManager lm = (LocationManager)
+                this.getSystemService(Context.LOCATION_SERVICE);
+        isGPSEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if (!isGPSEnabled) {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(AddNote.this);
+            final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
+            final String message = getResources().getString(R.string.gpsSeemsDisable);
+
+            builder.setMessage(message)
+                    .setPositiveButton(getResources().getString(R.string.okey),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+                                    AddNote.this.startActivity(new Intent(action));
+                                    d.dismiss();
+                                }
+                            })
+                    .setNegativeButton(getResources().getString(R.string.cancel),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+                                    d.cancel();
+                                }
+                            });
+            builder.create().show();
+
+        } else {
+            Toast.makeText(this, getResources().getString(R.string.gpsActiveNow), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -117,8 +163,6 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
         init();
-
-
 
 
         //initialization of DBHelper
@@ -139,8 +183,10 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
         //we're checking if user want to edit note
         if (isEdit) {
+
+            // getActionBar().setTitle(R.string.title_activity_update_note);
             //edit note mode
-            btn_UpdateLocation.setVisibility(View.VISIBLE);
+            tgBtn_UpdateLocation.setVisibility(View.VISIBLE);
             btn_confirm.setText(R.string.updateNoteButton);
 
             Log.d(TAG, "isEdit");
@@ -165,53 +211,63 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
             //you can change button text in /res/values/strings.xml file
 
             //addNoteToDB.setText(getResources().getString(R.string.updateNoteButton));
-        }
-        else {
+        } else {
             //add note mode
             gpsOpen();
         }
 
-        btn_UpdateLocation.setOnClickListener(new View.OnClickListener() {
+        tgBtn_UpdateLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                if (isChecked) {
 
-                gpsOpen();
-                if (ActivityCompat.checkSelfPermission(AddNote.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(AddNote.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                mMap.setMyLocationEnabled(true);
+                    gpsOpenUpdate();
 
-                mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-                    @Override
-                    public void onMyLocationChange(Location arg0) {
-
-                        AddNote.this.newLocation = arg0;
-
-                        float zoomLevel = (float) 16.0; //This goes up to 21
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(newLocation.getLatitude(), newLocation.getLongitude()), zoomLevel));
-                        mMap.addMarker(new MarkerOptions().position(new LatLng(newLocation.getLatitude(), newLocation.getLongitude())));
-
-                        lat = newLocation.getLatitude();
-                        lng = newLocation.getLongitude();
-
-                        strNewLocation = lat + "/" + lng;
-
+                    if (ActivityCompat.checkSelfPermission(AddNote.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(AddNote.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
                     }
-                });
+                    mMap.setMyLocationEnabled(true);
+
+                    mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+                        @Override
+                        public void onMyLocationChange(Location arg0) {
+
+                            mMap.clear();
+
+                            AddNote.this.newLocation = arg0;
+
+                            float zoomLevel = (float) 16.0; //This goes up to 21
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(newLocation.getLatitude(), newLocation.getLongitude()), zoomLevel));
+                            mMap.addMarker(new MarkerOptions().position(new LatLng(newLocation.getLatitude(), newLocation.getLongitude())));
+
+                            lat = newLocation.getLatitude();
+                            lng = newLocation.getLongitude();
+
+                            strNewLocation = lat + "/" + lng;
+
+                        }
+                    });
+                } else {
+
+                    mMap.clear();
+                    mMap.setMyLocationEnabled(false);
+                    float zoomLevel = (float) 16.0; //This goes up to 21
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoomLevel));
+                    mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(editTitle));
 
 
-
-
+                }
             }
         });
+
 
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,9 +297,11 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
                 if (!isEdit) {
 
                     if(strLocation==null){
-                        Toast.makeText(AddNote.this,"Location not find!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(AddNote.this,getResources().getString(R.string.locationNotFind),Toast.LENGTH_LONG).show();
                     }
                     else {
+
+
                         //if it isn't edit mode we just add a new note to db
                         dbhelper = new DBHelper(getApplicationContext());
                         dbhelper.addNote(title, content, strLocation);
@@ -255,14 +313,28 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
                     //edit note mode
 
+                    if(tgBtn_UpdateLocation.isChecked()){
+
                     if(strNewLocation==null){
-                        Toast.makeText(AddNote.this,"Location not find!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(AddNote.this,getResources().getString(R.string.locationNotFind),Toast.LENGTH_LONG).show();
                         gpsOpen();
                     }
                     else {
 
                         //if this is edit mode, we just update the old note
-                        dbhelper.updateNote(title, content, editTitle, strNewLocation);
+                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strNewLocation);
+                        //and the same finish activity
+                        finish();
+                    }
+                    }
+                    else {
+
+                        float zoomLevel = (float) 16.0; //This goes up to 21
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoomLevel));
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(editTitle)).showInfoWindow();
+
+                        //if this is edit mode, we just update the old note
+                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strLocation);
                         //and the same finish activity
                         finish();
                     }
@@ -324,7 +396,7 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
             float zoomLevel = (float) 16.0; //This goes up to 21
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoomLevel));
-            mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(editTitle)).showInfoWindow();
+            mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(editTitle));
 
 
 

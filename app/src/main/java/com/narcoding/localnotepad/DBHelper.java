@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -54,18 +55,23 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+
+
     //function for adding the note to database
     public void addNote(String title, String content, String location) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        //latLng = location.getLatitude() + "/" + location.getLongitude();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm' 'dd-MM-yyy");
+        Date date = new Date();
+        String datetime = dateFormat.format(date);
 
         //creating the contentValues object
         //read more here -> http://developer.android.com/reference/android/content/ContentValues.html
         ContentValues cv = new ContentValues();
         cv.put("noteTitle", title);
         cv.put("noteContent", content);
-        cv.put("date", new Date().toString());
+        cv.put("date", datetime);
         cv.put("location", location);
 
         //inserting the note to database
@@ -113,16 +119,23 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateNote(String title, String content, String editTitle, String location) {
+    public void updateNote(int id, String title, String content, String location) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm' 'dd-MM-yyy");
+        Date date = new Date();
+        String datetime = dateFormat.format(date);
+
 
         ContentValues cv = new ContentValues();
         cv.put("noteTitle", title);
         cv.put("noteContent", content);
-        cv.put("date", new Date().toString());
+        cv.put("date", datetime);
         cv.put("location", location);
 
-        db.update(TABLE_NAME, cv, KEY_TITLE + " LIKE '" +  editTitle +  "'", null);
+        //db.update(TABLE_NAME, cv, KEY_TITLE + " LIKE '" +  editTitle +  "'", null);
+        db.update(TABLE_NAME, cv, KEY_ID + " = ?",
+                new String[] { String.valueOf(id) });
 
         db.close();
 
