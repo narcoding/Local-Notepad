@@ -48,7 +48,6 @@
         android:layout_margin="5dp"
         android:text="TextView"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +66,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/mediaController"
                 android:background="@android:drawable/stat_notify_voicemail"/>
-
 
         </LinearLayout>
 

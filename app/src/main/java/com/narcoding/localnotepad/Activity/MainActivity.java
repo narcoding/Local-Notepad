@@ -1,11 +1,13 @@
 package com.narcoding.localnotepad.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
@@ -70,9 +72,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         init();
 
+
         // setting note's titles to item in listview
         setNotes();
 
+        if(adapter.getCount()==0){
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            final String message = "Create new Local Note!";
+
+            builder.setTitle("WELCOME!");
+            builder.setMessage(message)
+                    .setPositiveButton("Create",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+                                    MainActivity.this.startActivity(new Intent(MainActivity.this,AddNote.class));
+                                    d.dismiss();
+                                }
+                            })
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+                                    d.cancel();
+
+                                }
+                            });
+            builder.create().show();
+
+        }
         // setting that longclick on listview will open the context menu
         this.registerForContextMenu(noteList);
 

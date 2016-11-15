@@ -6,13 +6,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.location.Location;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -31,7 +33,7 @@ import com.narcoding.localnotepad.R;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
+public class NotesMap extends AppCompatActivity implements OnMapReadyCallback,GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap_Notes;
     private Cursor notes;
@@ -54,6 +56,8 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
     CameraUpdate cu;
     LatLngBounds bounds;
 
+    private ImageButton imgBtn_allmarkers;
+
 
 
     @Override
@@ -68,6 +72,9 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
         setNotes();
+        imgBtn_allmarkers= (ImageButton) findViewById(R.id.imgBtn_allmarkers);
+        imgBtn_allmarkers.setAlpha(0.8f);
+        imgBtn_allmarkers.setBackgroundColor(Color.WHITE);
 
     }
 
@@ -171,6 +178,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
 
         mMap_Notes = googleMap;
+        googleMap.setOnInfoWindowClickListener(this);
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -192,6 +200,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
                 markers.add(mMap_Notes.addMarker(new MarkerOptions().position(new LatLng(latitude.get(a), longitude.get(a)))));
 
 
+
         }
 
             int b=0;
@@ -211,6 +220,7 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
 
 
 
+
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (Marker marker : markers) {
 
@@ -219,28 +229,68 @@ public class NotesMap extends AppCompatActivity implements OnMapReadyCallback {
         bounds = builder.build();
         int padding = 80; // offset from edges of the map in pixels
         cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-        mMap_Notes.animateCamera(cu);
-
-        gpsOpen();
-
-        mMap_Notes.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-            @Override
-            public void onMyLocationChange(Location location) {
-
-                float zoomLevel = (float) 16.0; //This goes up to 21
-                mMap_Notes.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), zoomLevel));
-
-            }
-        });
 
         mMap_Notes.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
             @Override
             public void onMapLoaded() {
-                mMap_Notes.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 30));
+                //Your code where exception occurs goes here...
+                mMap_Notes.animateCamera(cu);
             }
         });
 
-    }
+
+
+        gpsOpen();
+
+
+        //mMap_Notes.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+
+        //    @Override
+
+        //    public void onMyLocationChange(Location location) {
+
+                //
+
+        //        float zoomLevel = (float) 16.0; //This goes up to 21
+
+        //        mMap_Notes.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), zoomLevel));
+
+                //
+
+        //    }
+
+        //});
+
+
+
+        imgBtn_allmarkers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mMap_Notes.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+                    @Override
+                    public void onMapLoaded() {
+                        //Your code where exception occurs goes here...
+                        mMap_Notes.animateCamera(cu);
+                    }
+                });
+
+            }
+        });
+
+
+
 
     }
+
+
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        //String title = marker.getTitle().toString();
+        //Intent mIntent = new Intent(this, OneNote.class);
+        //mIntent.putExtra("id", marker.getId());
+        //startActivity(mIntent);
+    }
+}
 

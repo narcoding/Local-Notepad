@@ -14,4 +14,13 @@
         android:layout_height="match_parent"
         tools:context=".Activity.NotesMap" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgBtn_allmarkers"
+        android:src="@android:drawable/ic_menu_myplaces"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"/>
+
+
 </RelativeLayout>
