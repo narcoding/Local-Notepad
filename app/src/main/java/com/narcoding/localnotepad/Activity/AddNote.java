@@ -43,10 +43,8 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
     private static final String TAG = "notepad";
 
-
-    //this variable will inform us if user want to create a new note or just update
+    //this variable will inform us if user want to create a new note or just update.
     private boolean isEdit;
-
 
     private DBHelper dbhelper;
     private SQLiteDatabase db;
