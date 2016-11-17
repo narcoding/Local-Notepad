@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.narcoding.localnotepad.DBHelper;
 import com.narcoding.localnotepad.R;
 
-public class OneNote extends AppCompatActivity  implements OnMapReadyCallback {
+public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap_OneNote;
 

@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,7 +34,7 @@ import com.narcoding.localnotepad.R;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class NotesMap extends AppCompatActivity implements OnMapReadyCallback,GoogleMap.OnInfoWindowClickListener {
+public class NotesMap extends ActionBarActivity implements OnMapReadyCallback,GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap_Notes;
     private Cursor notes;
