@@ -40,5 +40,7 @@
     <string name="locationNotFind">Lokasyon Bulunamadı!</string>
 
     <string name="updateNoteLocation">Konumu güncelle!</string>
+    <string name="takefromCamera">Kamerayı Aç</string>
+    <string name="selectFromGallery">Galeriden Seç</string>
 
 </resources>

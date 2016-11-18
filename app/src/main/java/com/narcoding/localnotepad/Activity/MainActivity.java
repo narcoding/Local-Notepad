@@ -158,6 +158,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         // now the activity will be managing the cursor lifecycle
         startManagingCursor(notes);
 
+
         // closing database connection !important
         // always close connection with database
         // we closing database connection here because we don't use db anymore
@@ -166,7 +167,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         // populating ArrayList items with notes titles
         if (notes.moveToFirst()) {
             do {
-                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3)));
+                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3),notes.getBlob(4)));
             } while (notes.moveToNext());
         }
 
@@ -189,6 +190,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         noteList.setOnItemClickListener(this);
 
         stopManagingCursor(notes);
+
     }
 
     // always when we start this activity we want to refresh the list of notes

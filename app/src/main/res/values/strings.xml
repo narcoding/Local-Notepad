@@ -39,5 +39,7 @@
     <string name="locationNotFind">Location not find!</string>
 
     <string name="updateNoteLocation">Update Location!</string>
+    <string name="takefromCamera">Take from Camera</string>
+    <string name="selectFromGallery">Take from Camera</string>
 
 </resources>

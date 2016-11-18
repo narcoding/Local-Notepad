@@ -146,7 +146,7 @@ public class NotesMap extends ActionBarActivity implements OnMapReadyCallback,Go
         // populating ArrayList items with notes titles
         if (notes.moveToFirst()) {
             do {
-                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3)));
+                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3),notes.getBlob(4)));
             } while (notes.moveToNext());
         }
 

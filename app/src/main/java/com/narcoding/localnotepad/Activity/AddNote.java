@@ -7,19 +7,26 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.RequiresPermission;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -32,10 +39,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.narcoding.localnotepad.DBHelper;
 import com.narcoding.localnotepad.R;
 
-public class AddNote extends FragmentActivity implements OnMapReadyCallback {
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
+public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Button btn_confirm, btn_cancel;
+    private Button btn_confirm, btn_cancel,btn_addVoice;
+    private ImageButton imgBtn_addImage;
     private ToggleButton tgBtn_UpdateLocation;
     private EditText titleEditText;
     private EditText contentEditText;
@@ -54,6 +65,7 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
     private String strLocation;
     private String strNewLocation;
     private int id = 0;
+    private byte[] image;
 
     double lat;
     double lng;
@@ -61,9 +73,17 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
     boolean isGPSEnabled;
 
 
+    private static final int CAMERA_REQUEST = 1;
+    private static final int PICK_FROM_GALLERY = 2;
+    byte[] imageName;
+    int imageId;
+    Bitmap theImage;
+
     private void init() {
         btn_confirm = (Button) findViewById(R.id.btn_confirm);
         btn_cancel = (Button) findViewById(R.id.btn_cancel);
+        imgBtn_addImage= (ImageButton) findViewById(R.id.imgBtn_addImage);
+        btn_addVoice= (Button) findViewById(R.id.btn_addVoice);
         tgBtn_UpdateLocation = (ToggleButton) findViewById(R.id.tgBtnUpdateLocation);
         tgBtn_UpdateLocation.setAlpha(0.8f);
         tgBtn_UpdateLocation.setBackgroundColor(Color.WHITE);
@@ -152,6 +172,54 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode != RESULT_OK)
+            return;
+
+        switch (requestCode) {
+            case CAMERA_REQUEST:
+
+                Bundle extras = data.getExtras();
+
+                if (extras != null) {
+                    Bitmap yourImage = extras.getParcelable("data");
+                    // convert bitmap to byte
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    image = stream.toByteArray();
+
+                    // Inserting Contacts
+
+                    Intent i = new Intent(AddNote.this, AddNote.class);
+                    startActivity(i);
+                    finish();
+
+                }
+                break;
+            case PICK_FROM_GALLERY:
+                Bundle extras2 = data.getExtras();
+
+                if (extras2 != null) {
+                    Bitmap yourImage = extras2.getParcelable("data");
+                    // convert bitmap to byte
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    image = stream.toByteArray();
+
+                    Intent i = new Intent(AddNote.this,
+                            AddNote.class);
+                    startActivity(i);
+                    finish();
+                }
+
+                break;
+        }
+
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
@@ -197,22 +265,58 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
             titleEditText.setText(c.getString(0));
             contentEditText.setText(c.getString(1));
             strLocation = c.getString(3);
+            image=c.getBlob(4);
 
 
             String[] latlong = strLocation.split("/");
             lat = Double.parseDouble(latlong[0]);
             lng = Double.parseDouble(latlong[1]);
 
+            if(image!=null) {
+                ByteArrayInputStream imageStream = new ByteArrayInputStream(image);
+                Bitmap theImage = BitmapFactory.decodeStream(imageStream);
+                imgBtn_addImage.setImageBitmap(theImage);
+            }
 
-            //and we're changing the button text to something more appropriate
-            //from add note to update note
-            //you can change button text in /res/values/strings.xml file
 
-            //addNoteToDB.setText(getResources().getString(R.string.updateNoteButton));
         } else {
             //add note mode
             gpsOpen();
         }
+
+        imgBtn_addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                final String[] option = new String[] {getResources().getString(R.string.takefromCamera) ,getResources().getString(R.string.selectFromGallery)};
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(AddNote.this,
+                        android.R.layout.select_dialog_item, option);
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddNote.this);
+
+                builder.setTitle(R.string.CtxMenuHeader);
+                builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // TODO Auto-generated method stub
+                        Log.e("Selected Item", String.valueOf(which));
+                        if (which == 0) {
+                            callCamera();
+                        }
+                        if (which == 1) {
+                            callGallery();
+                        }
+
+                    }
+                });
+                final AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+            }
+        });
+
+
 
         tgBtn_UpdateLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -302,7 +406,7 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
                         //if it isn't edit mode we just add a new note to db
                         dbhelper = new DBHelper(getApplicationContext());
-                        dbhelper.addNote(title, content, strLocation);
+                        dbhelper.addNote(title, content, strLocation,image);
                         //and finish the activity here
                         //so we came back to MainActivity
                         finish();
@@ -320,7 +424,7 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
                     else {
 
                         //if this is edit mode, we just update the old note
-                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strNewLocation);
+                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strNewLocation,image);
                         //and the same finish activity
                         finish();
                     }
@@ -332,7 +436,7 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
                         mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(editTitle)).showInfoWindow();
 
                         //if this is edit mode, we just update the old note
-                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strLocation);
+                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strLocation,image);
                         //and the same finish activity
                         finish();
                     }
@@ -343,12 +447,54 @@ public class AddNote extends FragmentActivity implements OnMapReadyCallback {
 
     }
 
+    /**
+     * open camera method
+     */
+    public void callCamera() {
+        Intent cameraIntent = new Intent(
+                android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        cameraIntent.putExtra("crop", "true");
+        cameraIntent.putExtra("aspectX", 0);
+        cameraIntent.putExtra("aspectY", 0);
+        cameraIntent.putExtra("outputX", 200);
+        cameraIntent.putExtra("outputY", 150);
+        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
+        //imgBtn_addImage.setImageBitmap();
+    }
+
+    /**
+     * open gallery method
+     */
+
+    public void callGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.putExtra("crop", "true");
+        intent.putExtra("aspectX", 0);
+        intent.putExtra("aspectY", 0);
+        intent.putExtra("outputX", 200);
+        intent.putExtra("outputY", 150);
+        intent.putExtra("return-data", true);
+        startActivityForResult(
+                Intent.createChooser(intent, "Complete action using"),
+                PICK_FROM_GALLERY);
+
+    }
+
+
     @Override
     protected void onPause() {
         super.onPause();
         dbhelper.close();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
