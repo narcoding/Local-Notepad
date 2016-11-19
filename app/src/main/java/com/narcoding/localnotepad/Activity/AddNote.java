@@ -44,6 +44,7 @@ import java.io.ByteArrayOutputStream;
 
 public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
 
+    
     private GoogleMap mMap;
     private Button btn_confirm, btn_cancel,btn_addVoice;
     private ImageButton imgBtn_addImage;
