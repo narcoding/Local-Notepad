@@ -10,13 +10,15 @@ public class Item {
     private String content;
     private String location;
     private byte[] image;
+    private byte[] voice;
 
-    public Item(int id, String title, String content, String location, byte[] image) {
+    public Item(int id, String title, String content, String location, byte[] image,byte[] voice) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.location = location;
         this.image = image;
+        this.voice=voice;
     }
 
     public void setId(int id) {this.id = id;}
@@ -24,11 +26,14 @@ public class Item {
     public void setContent(String content) {this.content = content;}
     public void setLocation(String location) {this.location = location;}
     public void setImage(byte[] image) {this.image = image;}
+    public void setVoice(byte[] voice) {this.voice = voice;}
+
 
     public int getId() {return id;}
     public String getTitle() {return title;}
     public String getContent() {return content;}
     public String getLocation() {return location;}
     public byte[] getImage() {return image;}
+    public byte[] getVoice() {return voice;}
 
 }

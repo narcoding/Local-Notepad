@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.drive.internal.StringListResponse;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -61,12 +64,14 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
     private DBHelper dbhelper;
     private SQLiteDatabase db;
 
+
     //variable will contain the title of editing note
     private String editTitle;
     private String strLocation;
     private String strNewLocation;
     private int id = 0;
     private byte[] image;
+    private byte[] voice;
 
     double lat;
     double lng;
@@ -83,8 +88,8 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
     private void init() {
         btn_confirm = (Button) findViewById(R.id.btn_confirm);
         btn_cancel = (Button) findViewById(R.id.btn_cancel);
+        btn_addVoice = (Button) findViewById(R.id.btn_addVoice);
         imgBtn_addImage= (ImageButton) findViewById(R.id.imgBtn_addImage);
-        btn_addVoice= (Button) findViewById(R.id.btn_addVoice);
         tgBtn_UpdateLocation = (ToggleButton) findViewById(R.id.tgBtnUpdateLocation);
         tgBtn_UpdateLocation.setAlpha(0.8f);
         tgBtn_UpdateLocation.setBackgroundColor(Color.WHITE);
@@ -190,11 +195,14 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
                     yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
                     image = stream.toByteArray();
 
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), photo);
+                    imgBtn_addImage.setBackgroundDrawable(bitmapDrawable);
                     // Inserting Contacts
 
-                    Intent i = new Intent(AddNote.this, AddNote.class);
-                    startActivity(i);
-                    finish();
+                    //Intent i = new Intent(AddNote.this, AddNote.class);
+                    //startActivity(i);
+                    //finish();
 
                 }
                 break;
@@ -208,10 +216,13 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
                     yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
                     image = stream.toByteArray();
 
-                    Intent i = new Intent(AddNote.this,
-                            AddNote.class);
-                    startActivity(i);
-                    finish();
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), photo);
+                    imgBtn_addImage.setBackgroundDrawable(bitmapDrawable);
+
+                    //Intent i = new Intent(AddNote.this, AddNote.class);
+                    //startActivity(i);
+                    //finish();
                 }
 
                 break;
@@ -267,6 +278,7 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
             contentEditText.setText(c.getString(1));
             strLocation = c.getString(3);
             image=c.getBlob(4);
+            voice=c.getBlob(5);
 
 
             String[] latlong = strLocation.split("/");
@@ -280,10 +292,19 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
             }
 
 
+
         } else {
             //add note mode
             gpsOpen();
         }
+
+        btn_addVoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(AddNote.this,VoiceRecordActivity.class);
+                startActivity(i);
+            }
+        });
 
         imgBtn_addImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -385,15 +406,26 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
             public void onClick(View v) {
                 //when user clicks button
                 //we're grabbing the title and content from editText
-                final String title = titleEditText.getText().toString();
+                String title = titleEditText.getText().toString();
                 final String content = contentEditText.getText().toString();
 
                 //if user left title or content field empty
                 //we show the toast, and tell to user to fill the fields
 
-                if (title.equals("") || content.equals("")) {
+                if (title.equals("") && content.equals("")) {
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.validation), Toast.LENGTH_LONG).show();
                     return;
+                }
+                else if(title.equals("")){
+
+                    int sonkarakter= content.length();
+                    if(sonkarakter>8)
+                    {
+                        title=content.substring(0,8);
+                    }
+                    else {
+                        title=content.substring(0,sonkarakter);
+                    }
                 }
 
                 //adding note to db
@@ -407,7 +439,7 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
 
                         //if it isn't edit mode we just add a new note to db
                         dbhelper = new DBHelper(getApplicationContext());
-                        dbhelper.addNote(title, content, strLocation,image);
+                        dbhelper.addNote(title, content, strLocation,image,voice);
                         //and finish the activity here
                         //so we came back to MainActivity
                         finish();
@@ -425,7 +457,7 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
                     else {
 
                         //if this is edit mode, we just update the old note
-                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strNewLocation,image);
+                        dbhelper.updateNote(id, title, contentEditText.getText().toString(), strNewLocation,image,voice);
                         //and the same finish activity
                         finish();
                     }
@@ -437,7 +469,7 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
                         mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(editTitle)).showInfoWindow();
 
                         //if this is edit mode, we just update the old note
-                        dbhelper.updateNote(id, titleEditText.getText().toString(), contentEditText.getText().toString(), strLocation,image);
+                        dbhelper.updateNote(id, title, contentEditText.getText().toString(), strLocation,image,voice);
                         //and the same finish activity
                         finish();
                     }

@@ -167,7 +167,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         // populating ArrayList items with notes titles
         if (notes.moveToFirst()) {
             do {
-                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3),notes.getBlob(4)));
+                items.add(new Item(notes.getShort(0), notes.getString(1), notes.getString(2),notes.getString(3),notes.getBlob(4),notes.getBlob(5)));
             } while (notes.moveToNext());
         }
 

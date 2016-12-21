@@ -19,9 +19,9 @@ public class DBHelper extends SQLiteOpenHelper {
     //version of database
     private static final int version = 1;
     //database name
-    private static final String DB_NAME = "LocalnotesDataB";
+    private static final String DB_NAME = "LocalNotepatDataBase";
     //name of table
-    private static final String TABLE_NAME = "Localnotes";
+    private static final String TABLE_NAME = "TBLLocalNotepad";
     //column names
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "noteTitle";
@@ -29,8 +29,9 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String KEY_DATE = "date";
     private static final String KEY_LOCATION = "location";
     private static final String KEY_IMAGE = "image";
+    private static final String KEY_VOICE = "voice";
     //sql query to creating table in database
-    private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_TITLE+" TEXT NOT NULL, "+KEY_CONTENT+" TEXT NOT NULL, "+KEY_DATE+" TEXT, "+KEY_LOCATION+" LOCATION, "+KEY_IMAGE+" BLOB"+")";
+    private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_TITLE+" TEXT NOT NULL, "+KEY_CONTENT+" TEXT NOT NULL, "+KEY_DATE+" TEXT, "+KEY_LOCATION+" LOCATION, "+KEY_IMAGE+" BLOB, "+KEY_VOICE+" BLOB"+")";
 
     //contructor of DBHelper
     public DBHelper(Context context) {
@@ -58,7 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     //function for adding the note to database
-    public void addNote(String title, String content, String location, byte[] image) {
+    public void addNote(String title, String content, String location, byte[] image, byte[] voice) {
         SQLiteDatabase db = this.getWritableDatabase();
 
 
@@ -74,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put("date", datetime);
         cv.put("location", location);
         cv.put("image", image);
+        cv.put("voice", voice);
 
         //inserting the note to database
         db.insert(TABLE_NAME, null, cv);
@@ -101,7 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getNotes2(SQLiteDatabase db) {
         //db.query is like normal sql query
         //cursor contains all notes
-        Cursor c = db.query(TABLE_NAME, new String[] {KEY_ID, KEY_TITLE, KEY_CONTENT, KEY_LOCATION, KEY_IMAGE}, null, null, null, null, "id DESC");
+        Cursor c = db.query(TABLE_NAME, new String[] {KEY_ID, KEY_TITLE, KEY_CONTENT, KEY_LOCATION, KEY_IMAGE, KEY_VOICE},null, null, null, null, null, "5000");
         //moving to the first note
         c.moveToFirst();
         //and returning Cursor object
@@ -109,7 +111,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getNote(SQLiteDatabase db, int id) {
-        Cursor c = db.query(TABLE_NAME, new String[] {KEY_TITLE, KEY_CONTENT, KEY_DATE, KEY_LOCATION, KEY_IMAGE}, KEY_ID + " = ?", new String[] { String.valueOf(id) }, null, null, null);
+        Cursor c = db.query(TABLE_NAME, new String[] {KEY_TITLE, KEY_CONTENT, KEY_DATE, KEY_LOCATION, KEY_IMAGE, KEY_VOICE}, KEY_ID + " = ?", new String[] { String.valueOf(id) }, null, null, null);
         c.moveToFirst();
         return c;
     }
@@ -120,7 +122,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateNote(int id, String title, String content, String location, byte[] image) {
+    public void updateNote(int id, String title, String content, String location, byte[] image, byte[] voice) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm' 'dd-MM-yyy");
@@ -134,6 +136,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put("date", datetime);
         cv.put("location", location);
         cv.put("image", image);
+        cv.put("voice", voice);
 
         //db.update(TABLE_NAME, cv, KEY_TITLE + " LIKE '" +  editTitle +  "'", null);
         db.update(TABLE_NAME, cv, KEY_ID + " = ?",

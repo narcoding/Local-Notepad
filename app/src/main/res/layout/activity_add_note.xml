@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/ll">
 
 
 <RelativeLayout
@@ -69,20 +70,15 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center_vertical">
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_addLocation"
-            android:background="@android:drawable/ic_dialog_map"/>
+        android:gravity="center_vertical"
+        android:weightSum="1">
 
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imgBtn_addImage"
-            android:background="@android:drawable/ic_menu_camera"/>
+            android:background="@android:drawable/ic_menu_camera"
+            android:layout_weight="0.05" />
 
         <Button
             style="?android:attr/buttonStyleSmall"

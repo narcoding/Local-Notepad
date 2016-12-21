@@ -30,6 +30,24 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_268503a50547423c9d8c81c90fb850b4969736d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.0.0_be267792cea7a6dbb75f383cedc5f3dfe256cd14.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -54,6 +72,15 @@
         revision="23.0.2"
         sha1="53f10fcd322a3931495d6ca2078a81f4957cdbce">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-fitness-9.0.2_fe2fdb6c93de2f6c0399333cb83f2fae605496de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.0.0_2855d1fe0f35c84c08df126dd8b2389d89aa7451.jar" />
     </item>
     <item
         is-multidex="false"
@@ -156,6 +183,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.0.0_7900a86aa507a65c5855eff1bc237820688b2d80.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -169,7 +205,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="8771cc1af7ab3ee8035d1655b44a274b0b5e084d">
+        sha1="02e6494f3b135cc41a4594ffbd607cbae226b891">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\instant-run_71fa961657e779125dc95166e4f9d55d3a41a957.jar" />
     </item>
     <item
@@ -201,21 +237,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_367822b99b719cdd6e3f9805f3710c513b6be1b4.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="d900f2a1ff098cac8befe6c023d723e9afb154be">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-9.0.2_bb080a93e8df8df0600f9e0c1b4c25ba0bc02a2f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_0fbbc6c1bb63387005d1d75640cb87d1e1afd2e8.jar" />
     </item>
     <item
         is-multidex="false"
@@ -261,15 +297,6 @@
         revision="23.0.2"
         sha1="b8e0372ca6dc89ac4fe22b76eeea4f68ece435b8">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-lite-9.0.2_dad60239621b5ee26caeee3a3e343b982c6b0b4f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_c32c99d528b3ec2ea7ff3ff7ba25aea73303316e.jar" />
     </item>
     <item
         is-multidex="true"
@@ -408,12 +435,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Belgeler\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\support-annotations-25.0.0_8825b08b6c955835657658378ef78d69c5d2f7d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="f399a2fde7888450cadcaec4974bfd169d8cce43">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tagmanager-api-9.0.2_19c4057873156ae78a2e4acb07bb3456dea61758.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.0.0_d444d72a62cc0972181499b523fbb66b631edb22.jar" />
     </item>
     <item
         is-multidex="false"
@@ -452,6 +497,15 @@
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-9.0.2_b5e0c0cd4593d7dc927a2bdeffc5573a4fa9e631.jar" />
     </item>
     <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_e37a0ac2805a53807adf588bb33ef2298688b3a9.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="C:\Users\Belgeler\Desktop\Git\Local-Notepadd\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.2\jars\classes.jar"
         jumboMode="true"
@@ -488,15 +542,6 @@
         <dex dex="C:\Users\Belgeler\Desktop\Git\Local-Notepadd\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.0.2_f59167638ed83e4e09616a06dad89becb9583ef3\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_1246ddb98d2e26d3cab3019d254ae9d8ae89ab1b.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="C:\Users\Belgeler\Desktop\Git\Local-Notepadd\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.0.2\jars\classes.jar"
         jumboMode="true"
@@ -504,15 +549,6 @@
         revision="23.0.2"
         sha1="143813b18381b28de1e04aae1d92fcb374a0add9">
         <dex dex="C:\Users\Belgeler\Desktop\Git\Local-Notepadd\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.0.2_e584a8cee75a24edafd5abd8087bd5303784e946\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_7f81dde554c3c4d78857b8eb2fb9d3647aeefae7.jar" />
     </item>
     <item
         is-multidex="true"
@@ -540,15 +576,6 @@
         revision="23.0.2"
         sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_097acc1ae98fc0d80ba49684d5e653ccb022c21d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_4b32ee54d17468ac0d9eb4e10d41441af4018d69.jar" />
     </item>
     <item
         is-multidex="false"
@@ -669,6 +696,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.0.0_b4141c74111d0eedba871089a5b4173000d9978c.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -678,12 +714,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_4b9addfff13cd4bbb5f082ca4dba072594db697e.jar" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.0.0_0f855b6c77529e34d955df9be0a3bca99283a904.jar" />
     </item>
     <item
         is-multidex="false"
@@ -750,12 +786,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.0.0_2049891915a2c21592b0b9f32ad26a6371582efb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_54a40d498c237d9787ad21d107bcf790ebb7ffd3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-mediarouter-v7-23.0.0_1044aa6a04807413551eba6a3548cd14f988dbb8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.0.0_9cb7ab9e6d1bb8f231be2ca8beff8c7e55b62e16.jar" />
     </item>
     <item
         is-multidex="false"
@@ -853,8 +916,17 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="d3d64ba8c11a4a6531e94e2230ce11f8d26528e2">
+        sha1="4447b20746dc06f425bade865e384542a3644b1f">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_03b8bdecf523d24e88529fb4a379bfcd90806a0f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.0.0_a8def4a791ed5f9ef18c0e0fc0a084e8692041d2.jar" />
     </item>
     <item
         is-multidex="false"
@@ -900,6 +972,15 @@
         revision="23.0.2"
         sha1="e11da70cff6a544a45cdc21f419802d9bb9043ac">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appinvite-9.0.2_a61237ffa7f42fa25b93829878c1d72aedb4d484.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_4d0e057e8b822347ebc27b13b79b9830e8fd2f28.jar" />
     </item>
 
 </items>
