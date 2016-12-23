@@ -36,7 +36,7 @@ public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
     private TextView noteTitle;
     private TextView createdAt;
     private TextView noteContent;
-    private ImageView img_showNoteImage;
+    private ImageView img_showNoteImage,img_voiceplay;
 
     //dbhelper
     private DBHelper dbhelper;
@@ -49,6 +49,7 @@ public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
     private String date = "date";
     private String location="location";
     private byte[] image;
+    private byte[] voice;
 
 
     double latitude;
@@ -71,11 +72,9 @@ public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
         noteContent = (TextView) findViewById(R.id.noteContent);
         createdAt = (TextView) findViewById(R.id.createdAt);
         img_showNoteImage= (ImageView) findViewById(R.id.img_showNoteImage);
+        img_voiceplay= (ImageView) findViewById(R.id.img_voiceplay);
 
-        // getting intent
-        Intent mIntent = getIntent();
-
-        id = mIntent.getIntExtra("id", 0);
+        id = getIntent().getIntExtra("id", 0);
 
         //getting the readable database
         db = dbhelper.getReadableDatabase();
@@ -92,6 +91,7 @@ public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
         date = c.getString(2).toString();
         location=c.getString(3).toString();
         image=c.getBlob(4);
+        voice=c.getBlob(5);
 
 
 
@@ -115,14 +115,32 @@ public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
                 @Override
                 public void onClick(View view) {
 
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    byte[] byteArray = stream.toByteArray();
+                    //ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    //bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    //byte[] byteArray = stream.toByteArray();
 
                     Intent in1 = new Intent(OneNote.this, FullImageActivity.class);
-                    in1.putExtra("image",byteArray);
+                    in1.putExtra("image",image);
 
                     startActivity(in1);
+                }
+            });
+
+        }
+
+        if(voice!=null){
+
+            img_voiceplay.setBackgroundResource(R.drawable.ic_media_play);
+
+            img_voiceplay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intentvoice=new Intent(OneNote.this,VoiceRecordActivity.class);
+                    intentvoice.putExtra("voice",voice);
+                    intentvoice.putExtra("fromthere","OneNote");
+                    startActivity(intentvoice);
+
                 }
             });
 
@@ -164,4 +182,6 @@ public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
         }
 
     }
+
+
 }

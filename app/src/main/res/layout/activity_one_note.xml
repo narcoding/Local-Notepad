@@ -61,11 +61,11 @@
             android:background="@android:drawable/ic_menu_gallery"
             android:id="@+id/img_showNoteImage"/>
 
-            <MediaController
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/mediaController"
-                android:background="@android:drawable/stat_notify_voicemail"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:drawable/stat_notify_voicemail"
+                android:id="@+id/img_voiceplay"/>
 
         </LinearLayout>
 

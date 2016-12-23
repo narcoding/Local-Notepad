@@ -1,6 +1,7 @@
 package com.narcoding.localnotepad.Activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.RequiresPermission;
 import android.support.v4.app.ActivityCompat;
@@ -44,6 +46,9 @@ import com.narcoding.localnotepad.R;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
 
@@ -81,6 +86,8 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
 
     private static final int CAMERA_REQUEST = 1;
     private static final int PICK_FROM_GALLERY = 2;
+    private static final int VOICE_REQUEST = 3;
+
     byte[] imageName;
     int imageId;
     Bitmap theImage;
@@ -224,8 +231,43 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
                     //startActivity(i);
                     //finish();
                 }
-
                 break;
+            case VOICE_REQUEST:
+                Bundle extras3=data.getExtras();
+
+                if(extras3!=null){
+
+                    if(resultCode == Activity.RESULT_OK){
+                         //voice=data.getStringExtra("result");
+                        voice=extras3.getByteArray("resultVoice");
+                    }
+
+                    //FileInputStream fis = null;
+                    //try {
+                    //    fis = new FileInputStream(dosyayolu);
+                    //} catch (FileNotFoundException e) {
+                    //    e.printStackTrace();
+                    //}
+                    //ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//
+                    //byte[] buffer =new byte[1024];
+                    //int read;
+                    //try {
+                    //    while ((read = fis.read(buffer)) != -1) {
+                    //        baos.write(buffer, 0, read);
+                    //    }
+                    //} catch (IOException e) {
+                    //    e.printStackTrace();
+                    //}
+                    //try {
+                    //    baos.flush();
+                    //} catch (IOException e) {
+                    //    e.printStackTrace();
+                    //}
+                    //voice = baos.toByteArray();
+                }
+
+
         }
 
 
@@ -253,6 +295,7 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
         //if user is editting the note we bind the title of this note to editTitle variable
         editTitle = mIntent.getStringExtra("title");
         id = mIntent.getIntExtra("id", 0);
+        //voice=mIntent.getByteArrayExtra("voice");
 
         //we're getting the isEdit value
         //if user is editing note, the value if true
@@ -301,8 +344,15 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
         btn_addVoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i=new Intent(AddNote.this,VoiceRecordActivity.class);
-                startActivity(i);
+                i.putExtra("fromthere", "AddNote");
+                //startActivityForResult(i,VOICE_REQUEST);
+                startActivityForResult(i,VOICE_REQUEST);
+
+                //Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+                //startActivityForResult(intent, 2);
+
             }
         });
 

@@ -29,21 +29,16 @@
         android:layout_centerHorizontal="true"
         android:textSize="24sp" />
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/playbutton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/audio_startplay_Button"/>
-
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/pausebutton"
-        android:id="@+id/audio_stopplay_Button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
-
+    <SeekBar
+        android:id="@+id/seek1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/chronometer"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

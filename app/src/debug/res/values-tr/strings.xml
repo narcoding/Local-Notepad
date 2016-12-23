@@ -38,6 +38,9 @@
     <string name="gpsDidntOpen">GPS açılmadı!</string>
     <string name="gpsSeemsDisable">GPS kapalı, açmak ister misiniz?</string>
     <string name="locationNotFind">Lokasyon Bulunamadı!</string>
+    <string name="saveVoice">Ses kaydını kaydetmek ister misiniz!</string>
+    <string name="saveThis">Kaydet</string>
+    <string name="deleteThis">Sil</string>
 
     <string name="updateNoteLocation">Konumu güncelle!</string>
     <string name="takefromCamera">Kamerayı Aç</string>

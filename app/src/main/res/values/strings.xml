@@ -37,6 +37,10 @@
     <string name="gpsDidntOpen">GPS didn\'t open!</string>
     <string name="gpsSeemsDisable">Your GPS seems to be disabled, do you want to enable it?</string>
     <string name="locationNotFind">Location not find!</string>
+    <string name="saveVoice">Do you want to save this record!</string>
+    <string name="saveThis">Save</string>
+    <string name="deleteThis">Delete</string>
+
 
     <string name="updateNoteLocation">Update Location!</string>
     <string name="takefromCamera">Take from Camera</string>

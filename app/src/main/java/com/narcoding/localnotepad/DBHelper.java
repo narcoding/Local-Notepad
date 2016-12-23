@@ -103,7 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getNotes2(SQLiteDatabase db) {
         //db.query is like normal sql query
         //cursor contains all notes
-        Cursor c = db.query(TABLE_NAME, new String[] {KEY_ID, KEY_TITLE, KEY_CONTENT, KEY_LOCATION, KEY_IMAGE, KEY_VOICE},null, null, null, null, null, "5000");
+        Cursor c = db.query(TABLE_NAME, new String[] {KEY_ID, KEY_TITLE, KEY_CONTENT, KEY_LOCATION, KEY_IMAGE, KEY_VOICE},null, null, null, null, "id DESC");
         //moving to the first note
         c.moveToFirst();
         //and returning Cursor object
