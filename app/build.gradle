@@ -1,14 +1,23 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        LocalNotepad {
+            keyAlias 'LocalNotepad'
+            keyPassword 'LocalNotepad'
+            storeFile file('LocalNotepad')
+            storePassword 'LocalNotepad'
+        }
+    }
+
     compileSdkVersion 25
     buildToolsVersion "23.0.2"
     defaultConfig {
         applicationId "com.narcoding.localnotepad"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 7
-        versionName "1.2.4"
+        versionCode 11
+        versionName "1.1.0"
     }
     buildTypes {
         release {

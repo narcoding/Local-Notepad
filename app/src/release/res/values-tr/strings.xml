@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lokal Not Defteri</string>
+    <string name="title_activity_add_note">Not Ekle</string>
+    <string name="title_activity_one_note">Not</string>
+    <string name="title_activity_notes_map">Not Haritası</string>
+    <string name="title_activity_update_note">Düzenle</string>
+
+    <string name="oneNote">NoteView</string>
+    <string name="addNoteButton">Yeni Not Ekle</string>
+    <string name="mainHeader">Notlarıms</string>
+    <string name="CtxMenuHeader">Seçiniz</string>
+    <string name="updateNoteButton">Güncelle</string>
+    <string name="validation">Başlık ya da içerik eklenmedi!</string>
+    <string name="btnConfirn">Kaydet</string>
+    <string name="btnCancel">Geri</string>
+
+    <!-- createview layout -->
+    <string name="noteTitle">Başlık</string>
+    <string name="noteContent">İçerik</string>
+    <string name="saveNoteButton">Kaydet</string>
+    <string name="tgButtonOFF">Konumu Güncelle</string>
+    <string name="tgButtonON">Vazgeç</string>
+
+
+    <!-- context menu options -->
+    <string name="showNote">Aç</string>
+    <string name="editNote">Düzenle</string>
+    <string name="removeNote">Notu Sil</string>
+
+    <string name="titleHint">Başlık giriniz</string>
+
+    <string name="enteranceAlert">İlk Notunuzu Ekleyin!</string>
+    <string name="enteranceAlertTitle">HOŞGELDİNİZ!</string>
+    <string name="okey">Evet!</string>
+    <string name="cancel">Geri</string>
+    <string name="gpsActiveNow">GPS aktif!</string>
+    <string name="gpsDidntOpen">GPS açılmadı!</string>
+    <string name="gpsSeemsDisable">GPS kapalı, açmak ister misiniz?</string>
+    <string name="locationNotFind">Lokasyon Bulunamadı!</string>
+    <string name="saveVoice">Ses kaydını kaydetmek ister misiniz!</string>
+    <string name="saveThis">Kaydet</string>
+    <string name="deleteThis">Sil</string>
+
+    <string name="updateNoteLocation">Konumu güncelle!</string>
+    <string name="takefromCamera">Kamerayı Aç</string>
+    <string name="selectFromGallery">Galeriden Seç</string>
+
+</resources>

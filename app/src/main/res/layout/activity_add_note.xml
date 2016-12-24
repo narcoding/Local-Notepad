@@ -1,9 +1,9 @@
+
 <LinearLayout
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:weightSum="1"
     android:id="@+id/ll">
 
 
@@ -33,18 +33,18 @@
 </RelativeLayout>
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight="0.98">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.98">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center_vertical"
-        android:layout_weight="0.98">
+        android:layout_weight="1.00">
 
     <EditText
         android:layout_width="match_parent"
@@ -60,8 +60,7 @@
         android:inputType="textMultiLine"
         android:hint="@string/noteContent"
         android:ems="10"
-        android:id="@+id/ContentEditText"
-        android:layout_weight="1" />
+        android:id="@+id/ContentEditText"/>
 
         </LinearLayout>
 
@@ -78,7 +77,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imgBtn_addImage"
             android:background="@android:drawable/ic_menu_camera"
-            android:layout_weight="0.05" />
+            android:layout_weight="0.05"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -97,25 +96,20 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1.00">
+        android:layout_gravity="center_horizontal">
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnConfirn"
             android:id="@+id/btn_confirm"
-            android:layout_weight="1.00" />
+            android:layout_weight="0.50"/>
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnCancel"
             android:id="@+id/btn_cancel"
-            android:layout_weight="1.00" />
+            android:layout_weight="0.50"/>
     </LinearLayout>
-
-
-
-
 </LinearLayout>

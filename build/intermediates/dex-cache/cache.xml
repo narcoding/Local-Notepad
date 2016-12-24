@@ -30,6 +30,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="568d5bda0b4d51f90d978ace369bb9ad024d2057">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-auth-common-9.0.2_02c52ff9d3428b4ac8fa5238472202558decceb0.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -75,15 +84,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_097acc1ae98fc0d80ba49684d5e653ccb022c21d.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -93,12 +93,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-9.0.2_f60a6a1ae213a0e7ad42440f838dc6b1a069edd9.jar" />
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-basement-9.0.2_7d952e696c3b5a523022250fcbf5417084637a9b.jar" />
     </item>
     <item
         is-multidex="false"
@@ -111,57 +111,48 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="604ecf403feb0084dc6d0c12f1677a490cf45e4c">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-config-9.0.2_2d71c0bea4a9bd1c24dee0d5c520d1a4f25f5b33.jar" />
+        sha1="c96952c162c9f6076f44c5939982cb35491442ea">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-plus-9.0.2_8bac1e399d3c86255bb756dae35652fc177d2855.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="bc156efaaee99f1ef6bf471347373a4cbb28e2a1">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wallet-9.0.2_dbfd6f0cc32a7e3010ede55daa29ec386534a790.jar" />
+        sha1="9819419ce8d79f3f81a0fc70f9345ac8c843af9c">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-database-connection-9.0.2_78054c4a1cc9febe14a2338fb92c0ec8a96dcb2e.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.0.2_91d9c36775535576fb6e360a24b837d1a67ddfea.jar" />
+        sha1="b3d0809a742c5f768c6aa9efc6decd5c1d6cd227">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-iid-9.0.2_b5e0c0cd4593d7dc927a2bdeffc5573a4fa9e631.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="79e298d7fed2fcada58da7032d07d34ee198a545">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-auth-module-9.0.2_d8f38ac535e8fdc4fc77ccab2c657bb0c70a9cfb.jar" />
+        sha1="9919563cffd8e3732e944d3c437d4b9575a08448">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-common-9.0.2_acbe6ff917539a10efa6ba77d7e270f2d8f1187c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.0.0_b4141c74111d0eedba871089a5b4173000d9978c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="764d32faf85bc6f7bd2cdcb3a70a482c1884fdd2">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wearable-9.0.2_297f3c39ea008f04f98b7a598a114130c7412168.jar" />
+        sha1="f4fb6981392ca7680d02fd57d26d6124c141d9d9">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-ads-9.0.2_4685c63781eeadafe27f31bc4ac78188d01e95f3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -174,12 +165,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="829c6e46cb221c2102801221c648b77113743e81">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-auth-base-9.0.2_0ab4dc0b73715d3c50fe7717f66909832287be9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="7e52b440a26498c56b4f263e215223b5451c955e">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-nearby-9.0.2_ef22d58e2af57df75dcc5c277de21fbaf33e7d1a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="92a1d5f71b0fc8938f1d3f2e6ef984b52b894b4d">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-location-9.0.2_c7db8dc8b39fdf018381523d299eccb450c619f3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="51a11c41a08f099a204e1b8dcc04f27217de50ec">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-analytics-9.0.2_cb5a045b866c6598c5a8ea779d765714592340b2.jar" />
     </item>
     <item
         is-multidex="false"
@@ -192,21 +210,48 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.0.0_0f855b6c77529e34d955df9be0a3bca99283a904.jar" />
+        sha1="d9ea4cdaafa29ec4651d6e4715788d3fcaa7b913">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-tagmanager-9.0.2_e05f02792c22cedc0e1218b6aaa7269115e19b63.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="6ff48ef26bc539c78af4aa061cb9bad6abcbf5e8">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-storage-common-9.0.2_913915e1acaad32b06bc60ad89450fff2d4147da.jar" />
+        sha1="cd4c7c54e15d9ccbc448384fa2c4684d69ca73f0">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-storage-9.0.2_e5caae6a27e18e3e9b7324f94d2f782b156fca45.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\internal_impl-25.0.0_268503a50547423c9d8c81c90fb850b4969736d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a498fab72f8663c26fbf3d4496eb6b673b17bcae">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-games-9.0.2_9902cf846d9f2d964137bba6e6266278c7074bc9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8c0fc9b1ea0bac0cb31d60c8b1bf2feb0518e3a9">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-panorama-9.0.2_f19b37db8858d70705b4ac6185fb0a5b5f40233d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -219,48 +264,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="e6970f0554f9508c041f1f6960af15cc888c9f35">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-9.0.2_bb26b597aa224e327471897d139707b6ff542fb0.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="d900f2a1ff098cac8befe6c023d723e9afb154be">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-9.0.2_bb080a93e8df8df0600f9e0c1b4c25ba0bc02a2f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="a45bc1ed812137b21dddd1cedaa3712b308f0b3f">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-cast-9.0.2_381050f18e10b527b4c6e29257c32efa53551b26.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="8c0fc9b1ea0bac0cb31d60c8b1bf2feb0518e3a9">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-panorama-9.0.2_f19b37db8858d70705b4ac6185fb0a5b5f40233d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="f2774b1e02e5fbc524590311a744263c3b152d63">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-messaging-9.0.2_d9e1142f512d2f384231b2960f60c8012c2788d4.jar" />
     </item>
     <item
         is-multidex="false"
@@ -282,15 +291,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-9.0.2_edff8907a7983eca11de7eda9b82ce6176726aad.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -300,21 +300,30 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="26674000177e45447a0326a6ad84612761199a13">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.0.0_2049891915a2c21592b0b9f32ad26a6371582efb.jar" />
+        sha1="53f10fcd322a3931495d6ca2078a81f4957cdbce">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-fitness-9.0.2_fe2fdb6c93de2f6c0399333cb83f2fae605496de.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_54a40d498c237d9787ad21d107bcf790ebb7ffd3.jar" />
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-base-9.0.2_90e4eb90117fbacabbf32c8d1bc3f89e991b6fe1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="20e1a0f0de6276a5f36062b655f8b20f8cc00cc4">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-maps-9.0.2_887ae6a163a14930de68be9f879007a2d88e9f8f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -327,30 +336,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-mediarouter-v7-23.0.0_1044aa6a04807413551eba6a3548cd14f988dbb8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.0.0_9cb7ab9e6d1bb8f231be2ca8beff8c7e55b62e16.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="c96952c162c9f6076f44c5939982cb35491442ea">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-plus-9.0.2_8bac1e399d3c86255bb756dae35652fc177d2855.jar" />
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\support-annotations-25.0.0_8825b08b6c955835657658378ef78d69c5d2f7d1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -390,21 +381,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="cf16220db9128d91a215aedc739584181d5ca6a4">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-9.0.2_416c917b647717d1281debdd01dd0d6559432662.jar" />
+        sha1="79e298d7fed2fcada58da7032d07d34ee198a545">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-auth-module-9.0.2_d8f38ac535e8fdc4fc77ccab2c657bb0c70a9cfb.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="9819419ce8d79f3f81a0fc70f9345ac8c843af9c">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-connection-9.0.2_78054c4a1cc9febe14a2338fb92c0ec8a96dcb2e.jar" />
+        sha1="b6af089f583d547bcffc0689b2e80bc7aaa54b15">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-safetynet-9.0.2_c33defeaaa7201640fd98776749d886742592ea3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -417,12 +408,75 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.0.2_7d952e696c3b5a523022250fcbf5417084637a9b.jar" />
+        sha1="e6970f0554f9508c041f1f6960af15cc888c9f35">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-gcm-9.0.2_bb26b597aa224e327471897d139707b6ff542fb0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-tasks-9.0.2_91d9c36775535576fb6e360a24b837d1a67ddfea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="fa472b7cbd3897bf6bed6068ac0b00e494987688">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-auth-9.0.2_6361700604d98bc930acd2f709e60bd9265a671a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="bc156efaaee99f1ef6bf471347373a4cbb28e2a1">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-wallet-9.0.2_dbfd6f0cc32a7e3010ede55daa29ec386534a790.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-support-compat-25.0.0_b4141c74111d0eedba871089a5b4173000d9978c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-support-media-compat-25.0.0_7900a86aa507a65c5855eff1bc237820688b2d80.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="764d32faf85bc6f7bd2cdcb3a70a482c1884fdd2">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-wearable-9.0.2_297f3c39ea008f04f98b7a598a114130c7412168.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-analytics-impl-9.0.2_f60a6a1ae213a0e7ad42440f838dc6b1a069edd9.jar" />
     </item>
     <item
         is-multidex="false"
@@ -444,15 +498,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="bd3d82c29cbaff00d7bd35b26ae75833d646d4ac">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_03b8bdecf523d24e88529fb4a379bfcd90806a0f.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -468,24 +513,6 @@
         revision="23.0.2"
         sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.0.0_d444d72a62cc0972181499b523fbb66b631edb22.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.0.0_a8def4a791ed5f9ef18c0e0fc0a084e8692041d2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="f4fb6981392ca7680d02fd57d26d6124c141d9d9">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-9.0.2_4685c63781eeadafe27f31bc4ac78188d01e95f3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -534,21 +561,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.0.2\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="e11da70cff6a544a45cdc21f419802d9bb9043ac">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appinvite-9.0.2_a61237ffa7f42fa25b93829878c1d72aedb4d484.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
-        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_4d0e057e8b822347ebc27b13b79b9830e8fd2f28.jar" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-support-v4-25.0.0_0f855b6c77529e34d955df9be0a3bca99283a904.jar" />
     </item>
     <item
         is-multidex="false"
@@ -558,6 +576,528 @@
         revision="23.0.2"
         sha1="a498fab72f8663c26fbf3d4496eb6b673b17bcae">
         <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-games-9.0.2_9902cf846d9f2d964137bba6e6266278c7074bc9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\internal_impl-25.0.0_54a40d498c237d9787ad21d107bcf790ebb7ffd3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b8e0372ca6dc89ac4fe22b76eeea4f68ece435b8">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-ads-lite-9.0.2_dad60239621b5ee26caeee3a3e343b982c6b0b4f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2ab5be19bbd34bae74662ea6b2d4451314d92d97">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-vision-9.0.2_67b8f6b21d04f0ba3328593a33e7b5695f298756.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-support-core-utils-25.0.0_9cb7ab9e6d1bb8f231be2ca8beff8c7e55b62e16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_097acc1ae98fc0d80ba49684d5e653ccb022c21d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-9.0.2_f60a6a1ae213a0e7ad42440f838dc6b1a069edd9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="fe5b47e764869f1076cb9cfe12801ed2ef4e9117">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-analytics-9.0.2_868e8039acea53f768c1b9cccddf605d3ad59cab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a45bc1ed812137b21dddd1cedaa3712b308f0b3f">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-cast-9.0.2_381050f18e10b527b4c6e29257c32efa53551b26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d900f2a1ff098cac8befe6c023d723e9afb154be">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-appindexing-9.0.2_bb080a93e8df8df0600f9e0c1b4c25ba0bc02a2f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="604ecf403feb0084dc6d0c12f1677a490cf45e4c">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-config-9.0.2_2d71c0bea4a9bd1c24dee0d5c520d1a4f25f5b33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-auth-9.0.2_edff8907a7983eca11de7eda9b82ce6176726aad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="143813b18381b28de1e04aae1d92fcb374a0add9">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-drive-9.0.2_d27303bc0327d142a9e83c59eac74828410827ea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="bc156efaaee99f1ef6bf471347373a4cbb28e2a1">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wallet-9.0.2_dbfd6f0cc32a7e3010ede55daa29ec386534a790.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.0.2_91d9c36775535576fb6e360a24b837d1a67ddfea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f399a2fde7888450cadcaec4974bfd169d8cce43">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-tagmanager-api-9.0.2_19c4057873156ae78a2e4acb07bb3456dea61758.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="79e298d7fed2fcada58da7032d07d34ee198a545">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-auth-module-9.0.2_d8f38ac535e8fdc4fc77ccab2c657bb0c70a9cfb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.0.0_b4141c74111d0eedba871089a5b4173000d9978c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="764d32faf85bc6f7bd2cdcb3a70a482c1884fdd2">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wearable-9.0.2_297f3c39ea008f04f98b7a598a114130c7412168.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4ec890171a97b5ab98292f131aa784e0f3792c73">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-database-9.0.2_62a56e7a750d73248ed214920d83014668ae42df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2774b1e02e5fbc524590311a744263c3b152d63">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-messaging-9.0.2_d9e1142f512d2f384231b2960f60c8012c2788d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e11da70cff6a544a45cdc21f419802d9bb9043ac">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-appinvite-9.0.2_a61237ffa7f42fa25b93829878c1d72aedb4d484.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-25.0.0_a8def4a791ed5f9ef18c0e0fc0a084e8692041d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.0.0_0f855b6c77529e34d955df9be0a3bca99283a904.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-25.0.0_d444d72a62cc0972181499b523fbb66b631edb22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\internal_impl-25.0.0_4d0e057e8b822347ebc27b13b79b9830e8fd2f28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\internal_impl-25.0.0_0fbbc6c1bb63387005d1d75640cb87d1e1afd2e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6ff48ef26bc539c78af4aa061cb9bad6abcbf5e8">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-storage-common-9.0.2_913915e1acaad32b06bc60ad89450fff2d4147da.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e6970f0554f9508c041f1f6960af15cc888c9f35">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-9.0.2_bb26b597aa224e327471897d139707b6ff542fb0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\internal_impl-25.0.0_e37a0ac2805a53807adf588bb33ef2298688b3a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a45bc1ed812137b21dddd1cedaa3712b308f0b3f">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-cast-9.0.2_381050f18e10b527b4c6e29257c32efa53551b26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8c0fc9b1ea0bac0cb31d60c8b1bf2feb0518e3a9">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-panorama-9.0.2_f19b37db8858d70705b4ac6185fb0a5b5f40233d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2774b1e02e5fbc524590311a744263c3b152d63">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-messaging-9.0.2_d9e1142f512d2f384231b2960f60c8012c2788d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-9.0.2_edff8907a7983eca11de7eda9b82ce6176726aad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="7e52b440a26498c56b4f263e215223b5451c955e">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-nearby-9.0.2_ef22d58e2af57df75dcc5c277de21fbaf33e7d1a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.0.0_2049891915a2c21592b0b9f32ad26a6371582efb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_54a40d498c237d9787ad21d107bcf790ebb7ffd3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-25.0.0_2855d1fe0f35c84c08df126dd8b2389d89aa7451.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-mediarouter-v7-23.0.0_1044aa6a04807413551eba6a3548cd14f988dbb8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.0.0_9cb7ab9e6d1bb8f231be2ca8beff8c7e55b62e16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="604ecf403feb0084dc6d0c12f1677a490cf45e4c">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-config-9.0.2_2d71c0bea4a9bd1c24dee0d5c520d1a4f25f5b33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="c96952c162c9f6076f44c5939982cb35491442ea">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-plus-9.0.2_8bac1e399d3c86255bb756dae35652fc177d2855.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cf16220db9128d91a215aedc739584181d5ca6a4">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-9.0.2_416c917b647717d1281debdd01dd0d6559432662.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\internal_impl-23.0.0_097acc1ae98fc0d80ba49684d5e653ccb022c21d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9819419ce8d79f3f81a0fc70f9345ac8c843af9c">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-connection-9.0.2_78054c4a1cc9febe14a2338fb92c0ec8a96dcb2e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cf16220db9128d91a215aedc739584181d5ca6a4">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-iid-9.0.2_416c917b647717d1281debdd01dd0d6559432662.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.0.2_7d952e696c3b5a523022250fcbf5417084637a9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0c835e9f3875cf245877c9b17d1c69bc98f16057">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-identity-9.0.2_67e6bf3de06bf480b8192ec6401e53d0f3b6e62c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6c58c14d15602fea2c50138c73bb107e8b832b62">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-analytics-impl-9.0.2_c6d241e32cc38f21abab9a74ba3a602748c9a44d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b200c8d77714e0dc625d7ca634adfb44ad544e44">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_03b8bdecf523d24e88529fb4a379bfcd90806a0f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.0.0_a8def4a791ed5f9ef18c0e0fc0a084e8692041d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f4fb6981392ca7680d02fd57d26d6124c141d9d9">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-9.0.2_4685c63781eeadafe27f31bc4ac78188d01e95f3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-mediarouter-v7-23.0.0_1044aa6a04807413551eba6a3548cd14f988dbb8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-support-core-ui-25.0.0_2049891915a2c21592b0b9f32ad26a6371582efb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.android.support-support-fragment-25.0.0_be267792cea7a6dbb75f383cedc5f3dfe256cd14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e11da70cff6a544a45cdc21f419802d9bb9043ac">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appinvite-9.0.2_a61237ffa7f42fa25b93829878c1d72aedb4d484.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6ff48ef26bc539c78af4aa061cb9bad6abcbf5e8">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-storage-common-9.0.2_913915e1acaad32b06bc60ad89450fff2d4147da.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="922c24fbfc4247947fcfaf2b95f295a16a8c3d17">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\release\com.google.firebase-firebase-crash-9.0.2_62006e3ddc94b658101c87c17e69c91e4c9b3354.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Belgeler\Desktop\Git\LokalNotepad\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_4d0e057e8b822347ebc27b13b79b9830e8fd2f28.jar" />
     </item>
 
 </items>
