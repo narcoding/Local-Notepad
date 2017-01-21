@@ -31,6 +31,7 @@
     <string name="titleHint">Başlık giriniz</string>
 
     <string name="enteranceAlert">İlk Notunuzu Ekleyin!</string>
+    <string name="permissionApply">Lütfen Gerekli İzinleri Onaylayın!</string>
     <string name="enteranceAlertTitle">HOŞGELDİNİZ!</string>
     <string name="okey">Evet!</string>
     <string name="cancel">Geri</string>

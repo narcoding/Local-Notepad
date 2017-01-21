@@ -30,6 +30,7 @@
     <string name="titleHint">Enter title here</string>
 
     <string name="enteranceAlert">Create First Note!</string>
+    <string name="permissionApply">Please Apply Required Permissions!</string>
     <string name="enteranceAlertTitle">Create First Note!</string>
     <string name="okey">OK</string>
     <string name="cancel">Cancel</string>

@@ -21,6 +21,7 @@ import android.provider.Settings;
 import android.support.annotation.RequiresPermission;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -279,6 +280,33 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
+
+
+        if (ContextCompat.checkSelfPermission(AddNote.this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(AddNote.this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    4);
+        }
+
+        if (ContextCompat.checkSelfPermission(AddNote.this,
+                Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(AddNote.this,
+                    new String[]{Manifest.permission.RECORD_AUDIO},
+                    2);
+        }
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    3);
+        }
+
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -347,6 +375,8 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
             @Override
             public void onClick(View view) {
 
+
+
                 Intent i=new Intent(AddNote.this,VoiceRecordActivity.class);
                 i.putExtra("fromthere", "AddNote");
                 //startActivityForResult(i,VOICE_REQUEST);
@@ -361,7 +391,6 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
         imgBtn_addImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 final String[] option = new String[] {getResources().getString(R.string.takefromCamera) ,getResources().getString(R.string.selectFromGallery)};
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(AddNote.this,
@@ -536,6 +565,9 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
      * open camera method
      */
     public void callCamera() {
+
+
+
         Intent cameraIntent = new Intent(
                 android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra("crop", "true");
@@ -553,6 +585,7 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
      */
 
     public void callGallery() {
+
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);

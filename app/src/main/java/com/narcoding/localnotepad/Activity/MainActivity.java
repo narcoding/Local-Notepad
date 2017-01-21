@@ -1,13 +1,16 @@
 package com.narcoding.localnotepad.Activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
@@ -72,6 +75,21 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     }
 
+    public static void startInstalledAppDetailsActivity(final Activity context) {
+
+        if (context == null) {
+            return;
+        }
+        final Intent i = new Intent();
+        i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.setData(Uri.parse("package:" + context.getPackageName()));
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        context.startActivity(i);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,26 +98,35 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
         init();
 
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    0);
-        }
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    1);
-        }
-
-        checkGooglePlayServicesAvailable();
-        // setting note's titles to item in listview
         setNotes();
 
         if(adapter.getCount()==0){
+
+
+            final AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+            final String message1 = getResources().getString(R.string.permissionApply);
+
+            builder1.setTitle(getResources().getString(R.string.enteranceAlertTitle));
+            builder1.setMessage(message1)
+                    .setPositiveButton(getResources().getString(R.string.okey),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+
+                                    startInstalledAppDetailsActivity(MainActivity.this);
+
+                                    d.dismiss();
+                                }
+                            })
+                    .setNegativeButton(getResources().getString(R.string.cancel),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface d, int id) {
+                                    d.cancel();
+
+                                }
+                            });
+            builder1.create().show();
+
+
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             final String message = getResources().getString(R.string.enteranceAlert);
@@ -123,6 +150,26 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             builder.create().show();
 
         }
+
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},0);
+        }
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    1);
+        }
+
+        checkGooglePlayServicesAvailable();
+        // setting note's titles to item in listview
+
+
+
         // setting that longclick on listview will open the context menu
         this.registerForContextMenu(noteList);
 
@@ -321,6 +368,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 //        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 //startActivityForResult(intent, 1234);
+
+
+
                 Intent intent_addNote=new Intent(this,AddNote.class);
                 startActivity(intent_addNote);
 
