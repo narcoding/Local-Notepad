@@ -45,6 +45,22 @@
 
     <string name="updateNoteLocation">Update Location!</string>
     <string name="takefromCamera">Take from Camera</string>
-    <string name="selectFromGallery">Take from Camera</string>
+    <string name="selectFromGallery">Select from Gallery</string>
+
+
+    <string name="runtimepermission">Permissions Check!</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="msg_failed_to_get_picture">Failed to get image</string>
+    <string name="lbl_pick_single_image">Select single image</string>
+    <string name="lbl_pick_multiple_image">Select multiple images</string>
+    <string name="txt_info">Quick sample for selecting images on Android</string>
+    <string name="msg_failed_to_get_intent_data">Failed to get intent data</string>
+    <string name="select_picture">Select Picture</string>
+
+
+    <string name="pick_image_intent_text">Pick Image</string>
 
 </resources>

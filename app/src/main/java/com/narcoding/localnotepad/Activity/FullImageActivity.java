@@ -1,5 +1,6 @@
 package com.narcoding.localnotepad.Activity;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -29,5 +30,7 @@ public class FullImageActivity extends AppCompatActivity {
         //rl.setBackgroundDrawable(bitmapDrawable);
 
     }
+
+
 
 }

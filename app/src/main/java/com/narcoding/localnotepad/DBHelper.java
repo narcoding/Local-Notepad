@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //version of database
     private static final int version = 1;
     //database name
-    private static final String DB_NAME = "LocalNotepatDataBase";
+    private static final String DB_NAME = "LNDataBase";
     //name of table
     private static final String TABLE_NAME = "TBLLocalNotepad";
     //column names

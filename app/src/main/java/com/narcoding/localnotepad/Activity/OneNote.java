@@ -1,5 +1,6 @@
 package com.narcoding.localnotepad.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -182,6 +183,7 @@ public class OneNote extends ActionBarActivity implements OnMapReadyCallback {
         }
 
     }
+
 
 
 }

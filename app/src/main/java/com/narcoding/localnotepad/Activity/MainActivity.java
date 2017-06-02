@@ -1,23 +1,15 @@
 package com.narcoding.localnotepad.Activity;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.Dialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -31,26 +23,27 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.baoyz.widget.PullRefreshLayout;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.narcoding.localnotepad.DBHelper;
 import com.narcoding.localnotepad.Item;
 import com.narcoding.localnotepad.R;
 
 import java.util.ArrayList;
+public class MainActivity extends RuntimePermissionsActivity implements AdapterView.OnItemClickListener{
 
-public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
+    private static final int REQUEST_PERMISSIONS = 20;
 
     // Tag for debugging
     private static final String TAG = "notepad";
 
     // our views from layout
     private ListView noteList;
-    private SwipeRefreshLayout swipeRefreshLayout;
 
     // adapter use to populate the listview
     private ArrayAdapter<String> adapter;
-    //private ArrayAdapter<String> adapter2;
+
     // cursor will contain notes from database
     private Cursor notes;
     // database helper
@@ -63,31 +56,93 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     // variable will contain the position of clicked item in listview
     private int position = 0;
 
-    //private ArrayList<String> contents;
+    private PullRefreshLayout prl_noteList;
+    private FloatingActionMenu fam;
+    private FloatingActionButton fabMapsNote, fabAddNote, fabSearchNote;
+    private SearchView searchView;
+    private MenuItem searchItem;
 
 
-
-    private void init(){
+    private void init() {
         noteList = (ListView) findViewById(R.id.noteList);
-        swipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
+
+        prl_noteList= (PullRefreshLayout) findViewById(R.id.prl_noteList);
+        prl_noteList.setRefreshStyle(PullRefreshLayout.STYLE_SMARTISAN);
+        prl_noteList.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
         // initialization of database helper
         dbhelper = new DBHelper(getApplicationContext());
 
     }
 
-    public static void startInstalledAppDetailsActivity(final Activity context) {
+    private void initFabMenu(){
+        fabMapsNote = (FloatingActionButton) findViewById(R.id.fabMapsNote);
+        fabAddNote = (FloatingActionButton) findViewById(R.id.fabAddNote);
+        fabSearchNote = (FloatingActionButton) findViewById(R.id.fabSearchNote);
+        fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
 
-        if (context == null) {
-            return;
-        }
-        final Intent i = new Intent();
-        i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        i.addCategory(Intent.CATEGORY_DEFAULT);
-        i.setData(Uri.parse("package:" + context.getPackageName()));
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        context.startActivity(i);
+        //handling menu status (open or close)
+        fam.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
+            @Override
+            public void onMenuToggle(boolean opened) {
+                if (opened) {
+                    //showToast("Menu is opened");
+                } else {
+                    //showToast("Menu is closed");
+                }
+            }
+        });
+
+        //handling each floating action button clicked
+        fabMapsNote.setOnClickListener(onButtonClick());
+        fabAddNote.setOnClickListener(onButtonClick());
+        fabSearchNote.setOnClickListener(onButtonClick());
+
+        fam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (fam.isOpened()) {
+                    fam.close(true);
+                }
+            }
+        });
+    }
+
+    private View.OnClickListener onButtonClick() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view == fabAddNote) {
+
+                    MainActivity.this.startActivity(new Intent(MainActivity.this,AddNote.class));
+
+                } else if (view == fabSearchNote) {
+
+                    if(adapter.getCount()==0){
+                        Toast.makeText(MainActivity.this,"You don't have any note! Please add note!",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        searchItem.expandActionView();
+                        searchView.requestFocus();
+                    }
+
+
+                } else {
+                    if(adapter.getCount()==0){
+                        Toast.makeText(MainActivity.this,"You don't have any note! Please add note!",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        MainActivity.this.startActivity(new Intent(MainActivity.this,NotesMap.class));
+                    }
+
+                }
+                fam.close(true);
+            }
+        };
     }
 
 
@@ -95,38 +150,23 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
-
+        initFabMenu();
         setNotes();
 
+        if (Build.VERSION.SDK_INT >= 23) {
+            MainActivity.super.requestAppPermissions(new
+                            String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.RECORD_AUDIO,
+                            Manifest.permission.CAPTURE_AUDIO_OUTPUT,
+                            Manifest.permission.CAMERA}, R.string
+                            .runtimepermission
+                    , REQUEST_PERMISSIONS);
+        }
+
         if(adapter.getCount()==0){
-
-
-            final AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-            final String message1 = getResources().getString(R.string.permissionApply);
-
-            builder1.setTitle(getResources().getString(R.string.enteranceAlertTitle));
-            builder1.setMessage(message1)
-                    .setPositiveButton(getResources().getString(R.string.okey),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface d, int id) {
-
-                                    startInstalledAppDetailsActivity(MainActivity.this);
-
-                                    d.dismiss();
-                                }
-                            })
-                    .setNegativeButton(getResources().getString(R.string.cancel),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface d, int id) {
-                                    d.cancel();
-
-                                }
-                            });
-            builder1.create().show();
-
-
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             final String message = getResources().getString(R.string.enteranceAlert);
@@ -149,54 +189,23 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                             });
             builder.create().show();
 
+
         }
+    }
 
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},0);
-        }
-
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    1);
-        }
-
-        checkGooglePlayServicesAvailable();
-        // setting note's titles to item in listview
-
-
-
-        // setting that longclick on listview will open the context menu
-        this.registerForContextMenu(noteList);
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-
-                refreshContent();
-
-            }
-        });
-
-
+    @Override
+    public void onPermissionsGranted(int requestCode) {
+        Toast.makeText(this, "Permissions Received.", Toast.LENGTH_LONG).show();
     }
 
 
-
-
     private void refreshContent(){
-
 
         Runnable run= new Runnable() {
             @Override
             public void run() {
                 noteList.setAdapter(adapter);
-                swipeRefreshLayout.setRefreshing(false);
+                prl_noteList.setRefreshing(false);
             }
         };
 
@@ -204,9 +213,6 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         handler.postDelayed(run, 750);
 
     }
-
-
-
 
     public void setNotes() {
         // init the items arrayList
@@ -241,19 +247,14 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             titles.add(i.getTitle());
         }
 
-        //for(Item i:items){
-        //    contents.add(i.getContent());
-        //}
-
         // creating new adapter
         adapter = new ArrayAdapter<String>(this, R.layout.simple_list_item, titles);
-
-        //adapter2=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2, contents);
 
         noteList.setAdapter(adapter);
         // setting listener to the listView
 
         noteList.setOnItemClickListener(this);
+        registerForContextMenu(noteList);
 
         stopManagingCursor(notes);
 
@@ -278,7 +279,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         position = info.position;
         // setting the title of context menu header
-        menu.setHeaderTitle(getResources().getString(R.string.CtxMenuHeader));
+        TextView tv = (TextView) noteList.getChildAt(position);
+        menu.setHeaderTitle(tv.getText());
         // inflating the menu from xml file
         // for details see context_menu.xml file in /res/menu folder
         MenuInflater inflater = getMenuInflater();
@@ -331,11 +333,13 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main, menu);
+        searchItem =  menu.findItem(R.id.action_search);
 
-        MenuItem searchItem = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
+        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -343,80 +347,13 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
                 adapter.getFilter().filter(newText);
                 return false;
             }
+
         });
+        return true;
 
-        return super.onCreateOptionsMenu(menu);
-
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.search:
-                //Intent dialer= new Intent(Intent.ACTION_DIAL);
-                //startActivity(dialer);
-                return true;
-            case R.id.action_add:
-                //Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                //        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-                //startActivityForResult(intent, 1234);
-
-
-
-                Intent intent_addNote=new Intent(this,AddNote.class);
-                startActivity(intent_addNote);
-
-                return true;
-
-            case R.id.action_map:
-
-                if(adapter.getCount()==0){
-                    Toast.makeText(this,"You don't have any note! Please add note!",Toast.LENGTH_LONG).show();
-                }
-                else {
-
-                    int last_itemId = items.get(noteList.getLastVisiblePosition()).getId();
-
-                    String last_itemTitle = items.get(noteList.getLastVisiblePosition()).getTitle().toString();
-
-                    Intent intent_map = new Intent(this, NotesMap.class);
-                    //intent_map.putExtra("last_itemId",last_itemId);
-                    //intent_map.putExtra("last_itemTitle",last_itemTitle);
-                    startActivity(intent_map);
-
-                return true;
-                }
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void checkGooglePlayServicesAvailable() {
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (status != ConnectionResult.SUCCESS) {
-            if (GooglePlayServicesUtil.isUserRecoverableError(status)) {
-                Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, 0);
-                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialogInterface) {
-                        MainActivity.this.finish();
-                    }
-                });
-                dialog.show();
-            } else {
-                Toast.makeText(this, "This device is not supported.", Toast.LENGTH_LONG).show();
-                finish();
-            }
-        }
     }
 
 
@@ -431,7 +368,5 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         startActivity(mIntent);
 
     }
-
-
 
 }

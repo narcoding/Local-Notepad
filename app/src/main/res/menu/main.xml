@@ -1,26 +1,9 @@
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Activity.MainActivity">
-
-    <item android:id="@+id/search"
-        android:title="search"
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_search"
+        android:title="Search"
         android:icon="@android:drawable/ic_menu_search"
-        app:showAsAction="collapseActionView|ifRoom"
+        app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="android.support.v7.widget.SearchView" />
-
-    <item
-        android:id="@+id/action_add"
-       android:icon="@android:drawable/ic_menu_add"
-       app:showAsAction="always|withText"
-       android:title="ekle" />
-
-    <item
-        android:id="@+id/action_map"
-        android:icon="@android:drawable/ic_dialog_map"
-        app:showAsAction="always|withText"
-        android:title="ekle" />
-
-
 </menu>

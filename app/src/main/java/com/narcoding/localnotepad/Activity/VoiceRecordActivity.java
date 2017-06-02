@@ -2,12 +2,14 @@ package com.narcoding.localnotepad.Activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
+import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
@@ -16,7 +18,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -55,7 +56,6 @@ public class VoiceRecordActivity extends AppCompatActivity {
     private byte[] voice;
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -186,7 +186,8 @@ public class VoiceRecordActivity extends AppCompatActivity {
         if(!isRecording){
             //Create MediaRecorder and initialize audio source, output format, and audio encoder
             mediaRecorder = new MediaRecorder();
-            mediaRecorder.setAudioSource( MediaRecorder.AudioSource.MIC);
+            //mediaRecorder.setAudioSource( MediaRecorder.AudioSource.MIC);
+            mediaRecorder.setAudioSource( MediaRecorder.AudioSource.DEFAULT);
             mediaRecorder.setOutputFormat( MediaRecorder.OutputFormat.THREE_GPP);
             mediaRecorder.setOutputFile(FILE_PATH_NAME);
             mediaRecorder.setAudioEncoder( MediaRecorder.AudioEncoder.AMR_NB);
@@ -196,11 +197,13 @@ public class VoiceRecordActivity extends AppCompatActivity {
             chronometer.start();
             try {
                 mediaRecorder.prepare();
+                // Start record job
+                mediaRecorder.start();
             } catch (IOException e) {
                 Log.e("LOG_TAG", "prepare failed");
+                Toast.makeText(this, "Telefonunuz ses kaydı özelliğini desteklememektedir.",Toast.LENGTH_SHORT);
             }
-            // Start record job
-            mediaRecorder.start();
+
             // Change isRecroding flag to true
             isRecording=true;
             // Post the record progress
@@ -331,5 +334,6 @@ public class VoiceRecordActivity extends AppCompatActivity {
 
         return bytes;
     }
+
 
 }

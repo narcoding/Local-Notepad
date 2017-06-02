@@ -284,8 +284,6 @@ public class NotesMap extends ActionBarActivity implements OnMapReadyCallback,Go
 
     }
 
-
-
     @Override
     public void onInfoWindowClick(Marker marker) {
         //String title = marker.getTitle().toString();
@@ -293,5 +291,7 @@ public class NotesMap extends ActionBarActivity implements OnMapReadyCallback,Go
         //mIntent.putExtra("id", marker.getId());
         //startActivity(mIntent);
     }
+
+
 }
 

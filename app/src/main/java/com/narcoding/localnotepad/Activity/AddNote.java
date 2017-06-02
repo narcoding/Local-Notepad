@@ -1,6 +1,7 @@
 package com.narcoding.localnotepad.Activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,45 +13,40 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.support.annotation.RequiresPermission;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.google.android.gms.drive.internal.StringListResponse;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.narcoding.localnotepad.Controller.ImagePicker;
 import com.narcoding.localnotepad.DBHelper;
 import com.narcoding.localnotepad.R;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
 
@@ -89,10 +85,22 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
     private static final int CAMERA_REQUEST = 1;
     private static final int PICK_FROM_GALLERY = 2;
     private static final int VOICE_REQUEST = 3;
+    private static final int image_REQUEST = 4;
+
+    ImagePicker imagePicker=new ImagePicker();
 
     byte[] imageName;
     int imageId;
     Bitmap theImage;
+
+
+    ImageView iv_attachment;
+
+    //For Image Attachment
+
+    private Bitmap bitmap;
+    private String file_name;
+
 
     private void init() {
         btn_confirm = (Button) findViewById(R.id.btn_confirm);
@@ -187,6 +195,7 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
 
 
     @Override
+    @SuppressLint("NewApi")
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (resultCode != RESULT_OK)
@@ -269,49 +278,88 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
                     //voice = baos.toByteArray();
                 }
 
+            case image_REQUEST:
+
+
+                    //Bitmap yourImage = extras4.getParcelable("data");
+                    Bitmap yourImage = imagePicker.getImageFromResult(AddNote.this, resultCode, data);
+                    // convert bitmap to byte
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    image = stream.toByteArray();
+
+                    //Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    //BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), photo);
+                    //imgBtn_addImage.setBackgroundDrawable(bitmapDrawable);
+
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), imagePicker.getImageFromResult(AddNote.this, resultCode, data));
+                    imgBtn_addImage.setBackgroundDrawable(bitmapDrawable);
+
+                    //Intent i = new Intent(AddNote.this, AddNote.class);
+                    //startActivity(i);
+                    //finish();
+
+
+
+                break;
 
         }
 
 
     }
 
+/*
+    private void checkPermission() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},
+                    MY_PERMISSIONS_REQUEST_FINE_LOCATION);
+
+        } else {
+            getLocation();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_FINE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    getLocation();
+                } else {
+                    // permission denied, boo! Disable the
+                }
+                return;
+            }
+        }
+    }
+
+    */
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
-
-
-
-        if (ContextCompat.checkSelfPermission(AddNote.this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(AddNote.this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                    4);
-        }
-
-        if (ContextCompat.checkSelfPermission(AddNote.this,
-                Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(AddNote.this,
-                    new String[]{Manifest.permission.RECORD_AUDIO},
-                    2);
-        }
-
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.CAMERA},
-                    3);
-        }
-
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         init();
+
+
 
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
@@ -392,28 +440,31 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
 
-                final String[] option = new String[] {getResources().getString(R.string.takefromCamera) ,getResources().getString(R.string.selectFromGallery)};
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(AddNote.this,
-                        android.R.layout.select_dialog_item, option);
-                AlertDialog.Builder builder = new AlertDialog.Builder(AddNote.this);
 
-                builder.setTitle(R.string.CtxMenuHeader);
-                builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+                startActivityForResult(imagePicker.getPickImageIntent(AddNote.this),image_REQUEST);
 
-                    public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
-                        Log.e("Selected Item", String.valueOf(which));
-                        if (which == 0) {
-                            callCamera();
-                        }
-                        if (which == 1) {
-                            callGallery();
-                        }
-
-                    }
-                });
-                final AlertDialog dialog = builder.create();
-                dialog.show();
+                //final String[] option = new String[] {getResources().getString(R.string.takefromCamera) ,getResources().getString(R.string.selectFromGallery)};
+                //ArrayAdapter<String> adapter = new ArrayAdapter<>(AddNote.this,
+                //        android.R.layout.select_dialog_item, option);
+                //AlertDialog.Builder builder = new AlertDialog.Builder(AddNote.this);
+//
+                //builder.setTitle(R.string.CtxMenuHeader);
+                //builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+//
+                //    public void onClick(DialogInterface dialog, int which) {
+                //        // TODO Auto-generated method stub
+                //        Log.e("Selected Item", String.valueOf(which));
+                //        if (which == 0) {
+                //            callCamera();
+                //        }
+                //        if (which == 1) {
+                //            callGallery();
+                //        }
+//
+                //    }
+                //});
+                //final AlertDialog dialog = builder.create();
+                //dialog.show();
 
 
             }
@@ -566,8 +617,6 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
      */
     public void callCamera() {
 
-
-
         Intent cameraIntent = new Intent(
                 android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra("crop", "true");
@@ -618,9 +667,6 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-
-
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -660,12 +706,15 @@ public class AddNote extends ActionBarActivity implements OnMapReadyCallback {
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoomLevel));
             mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(editTitle));
 
-
-
         }
 
+    }
 
 
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
     }
+
 }
